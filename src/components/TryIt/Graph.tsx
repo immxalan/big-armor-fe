@@ -8,27 +8,56 @@ function Graph() {
       results: {
         toxic: {
           prediction: false,
-          probability: 0.07071,
+          probability: 0.37071,
         },
         severe_toxic: {
           prediction: false,
-          probability: 0.00329,
+          probability: 0.10329,
         },
         obscene: {
           prediction: false,
-          probability: 0.00152,
+          probability: 0.50152,
         },
         threat: {
           prediction: false,
-          probability: 0.03545,
+          probability: 0.13545,
         },
         insult: {
           prediction: false,
-          probability: 0.00747,
+          probability: 0.50747,
         },
         identity_hate: {
           prediction: false,
-          probability: 0.00285,
+          probability: 0.90285,
+        },
+      },
+    },
+    {
+      text: "I think the color brown.",
+      results: {
+        toxic: {
+          prediction: true,
+          probability: 0.39828,
+        },
+        severe_toxic: {
+          prediction: false,
+          probability: 0.62829,
+        },
+        obscene: {
+          prediction: false,
+          probability: 0.83187,
+        },
+        threat: {
+          prediction: false,
+          probability: 0.47269,
+        },
+        insult: {
+          prediction: false,
+          probability: 0.88975,
+        },
+        identity_hate: {
+          prediction: false,
+          probability: 0.5742,
         },
       },
     },
@@ -41,19 +70,19 @@ function Graph() {
         },
         severe_toxic: {
           prediction: false,
-          probability: 0.02829,
+          probability: 0.32829,
         },
         obscene: {
           prediction: false,
-          probability: 0.03187,
+          probability: 0.93187,
         },
         threat: {
           prediction: false,
-          probability: 0.17269,
+          probability: 0.67269,
         },
         insult: {
           prediction: false,
-          probability: 0.18975,
+          probability: 0.38975,
         },
         identity_hate: {
           prediction: false,
@@ -67,7 +96,7 @@ function Graph() {
     return Object.keys(data[0].results);
   };
 
-  const dataSetCreater = (dataSet: any, labels: any) => {
+  const dataSetCreater = (dataSet: any, labels: any, color: any) => {
     let newDataSet: {
       label: any;
       backgroundColor: string;
@@ -75,8 +104,8 @@ function Graph() {
       data: Array<number>;
     } = {
       label: dataSet.text,
-      backgroundColor: "rgba(194, 116, 161, 0.5)",
-      borderColor: "rgb(194, 116, 161)",
+      backgroundColor: `rgba(${color}, 0.5)`,
+      borderColor: `rgb(${color})`,
       data: [],
     };
 
@@ -97,8 +126,31 @@ function Graph() {
       datasets: [],
     };
 
-    data.forEach((dataset: any) => {
-      newDataRadar.datasets.push(dataSetCreater(dataset, newDataRadar.labels));
+    let colors: Array<any> = [
+      "139,0,0",
+      "119,136,153",
+      "210,105,30",
+      "255,105,180",
+      "32,178,170",
+      "25,25,112",
+      "47,79,79",
+      "138,43,226",
+      "50,205,50",
+      "160,82,45",
+      "75,0,130",
+      "34,139,34",
+      "100,149,237",
+      "255,215,0",
+      "188,143,143",
+      "250,128,114",
+      "255,127,80",
+      "0,128,128",
+    ];
+
+    data.forEach((dataset: any, i: any) => {
+      newDataRadar.datasets.push(
+        dataSetCreater(dataset, newDataRadar.labels, colors[i])
+      );
     });
 
     return newDataRadar;
