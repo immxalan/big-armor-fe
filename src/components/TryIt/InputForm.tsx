@@ -2,12 +2,12 @@ import React from 'react';
 
 const InputForm = () => {
 
-  return (
+    return (
 
-    <div>
-      <p>This is the input form</p>
-    </div>
-  )
+        <div>
+            <p>This is the input form</p>
+        </div>
+    )
 };
 
 
