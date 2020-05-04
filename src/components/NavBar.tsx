@@ -6,36 +6,49 @@ const useStyles = makeStyles({
   logo: {
     display: "flex",
     justifyContent: "left",
-    paddingTop: 50,
     paddingLeft: 40,
   },
   navBar: {
     display: "flex",
     justifyContent: "space-evenly",
-    textDecoration: "none",
+    
+    fontSize: 25,
+    
   },
-  // headerDisplay: {
-  //   display: "flex",
-  //   justifyContent: "space-around",
-  // },
+  headerDisplay: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingTop: 25,
+  },
+  navLink: {
+    paddingRight: 15,
+    paddingLeft: 15,
+    marginLeft: 10,
+    marginRight: 10,
+    textDecoration: "none",
+    backgroundColor: "rgba(220, 220, 220, 0.4)",
+    borderRadius: 8,
+    color: "black"
+  }
 });
 
 function NavBar() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.headerDisplay}>
       <img
         src="https://www.bigarmor.com/wp-content/uploads/Big-Armor-Logo.png"
         alt="Big Armor logo"
         className={classes.logo}
       />
       <nav className={classes.navBar}>
-        <Link to="/">Home</Link>
-        <Link to="/try-it">Try It</Link>
-        <Link to="/api-docs">API Documentation</Link>
-        <Link to="/model-docs">Model Documentation</Link>
-        <Link to="/about">About</Link>
+        <Link className={classes.navLink} to="/">Home</Link>
+        <Link className={classes.navLink} to="/try-it">Try It</Link>
+        <Link className={classes.navLink} to="/api-docs">API Documentation</Link>
+        <Link className={classes.navLink} to="/model-docs">Model Documentation</Link>
+        <Link className={classes.navLink} to="/about">About</Link>
       </nav>
     </div>
   );

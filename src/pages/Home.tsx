@@ -24,6 +24,7 @@ const useStyles = makeStyles({
   taglineContainer: {
     display: "flex",
     flexDirection: "column",
+    alignItems: "center",
     marginTop: 60,
     marginLeft: 35,
   },

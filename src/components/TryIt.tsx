@@ -3,7 +3,7 @@ import React from "react"
 function TryIt() {
   return (
     <div>
-      <p>This secion will contain the text area, the graph, and the legend of strings</p>
+      <p>This section will contain the text area, the graph, and the legend of strings</p>
     </div>
   )
 }
