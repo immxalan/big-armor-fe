@@ -2,6 +2,8 @@ import React from "react";
 import { Radar } from "react-chartjs-2";
 
 function Graph() {
+
+  //just dummy data with bogus numbers to experiment
   const dummyData = [
     {
       text: "I love pizza!",
@@ -92,9 +94,12 @@ function Graph() {
     }
   ];
 
-  const dataLabelCreater = (data: { text: string, results: { [index: string]: { probability: number } } }) => {
+  //function that creates an array of labels by pulling all the keys inside the results object
+  const dataLabelCreater = (data: { text: string, results: {} }) => {
     return Object.keys(data.results);
   };
+
+  //function that creates a dataset usable by the graph
   const dataSetCreater = (dataSet: { text: string, results: { [index: string]: { probability: number } } }, labels: string[], color: string) => {
     let newDataSet: {
       label: string;
@@ -103,12 +108,12 @@ function Graph() {
       data: number[];
     } = {
       label: dataSet.text,
+      //edit the opacity as needed here
       backgroundColor: `rgba(${color}, 0.5)`,
       borderColor: `rgb(${color})`,
       data: [],
     };
 
-    // rename dummyData to data
     labels.forEach((item: string) => {
       newDataSet.data.push(Math.round(dataSet.results[item].probability * 100));
     });
@@ -116,7 +121,7 @@ function Graph() {
     return newDataSet;
   };
 
-
+  //just an array of colors
   const colors: string[] = [
     "139,0,0",
     "119,136,153",
@@ -138,8 +143,9 @@ function Graph() {
     "0,128,128",
   ];
 
-
+  //function that creates the basic structure of the object by the Radar Graph, takes in an object returned from the Big Armor API
   const dataRadarCreater = (data: { text: string, results: { [index: string]: { probability: number } } }[]) => {
+
     let newDataRadar: {
       labels: string[];
       datasets: object[];
@@ -151,6 +157,7 @@ function Graph() {
     return newDataRadar
   };
 
+  //creates the full dataset with three sets initialised
   let dataRadar = dataRadarCreater(dummyData);
   dataRadar.datasets.push(dataSetCreater(dummyData[0], dataRadar.labels, colors[dataRadar.datasets.length]))
   dataRadar.datasets.push(dataSetCreater(dummyData[1], dataRadar.labels, colors[dataRadar.datasets.length]))
