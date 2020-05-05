@@ -6,6 +6,7 @@ import TryIt from "../components/TryIt/TryIt";
 import { makeStyles } from "@material-ui/core/styles";
 import NavBar from "../components/NavBar";
 
+
 const image =
   "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80";
 

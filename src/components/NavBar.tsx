@@ -11,9 +11,7 @@ const useStyles = makeStyles({
   navBar: {
     display: "flex",
     justifyContent: "space-evenly",
-    
     fontSize: 25,
-    
   },
   headerDisplay: {
     display: "flex",
@@ -29,8 +27,8 @@ const useStyles = makeStyles({
     textDecoration: "none",
     backgroundColor: "rgba(220, 220, 220, 0.4)",
     borderRadius: 8,
-    color: "black"
-  }
+    color: "black",
+  },
 });
 
 function NavBar() {
@@ -44,11 +42,21 @@ function NavBar() {
         className={classes.logo}
       />
       <nav className={classes.navBar}>
-        <Link className={classes.navLink} to="/">Home</Link>
-        <Link className={classes.navLink} to="/try-it">Try It</Link>
-        <Link className={classes.navLink} to="/api-docs">API Documentation</Link>
-        <Link className={classes.navLink} to="/model-docs">Model Documentation</Link>
-        <Link className={classes.navLink} to="/about">About</Link>
+        <Link className={classes.navLink} to="/">
+          Home
+        </Link>
+        <Link className={classes.navLink} to="/try-it">
+          Try It
+        </Link>
+        <Link className={classes.navLink} to="/api-docs">
+          API Documentation
+        </Link>
+        <Link className={classes.navLink} to="/model-docs">
+          Model Documentation
+        </Link>
+        <Link className={classes.navLink} to="/about">
+          About
+        </Link>
       </nav>
     </div>
   );
