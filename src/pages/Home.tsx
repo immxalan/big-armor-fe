@@ -19,11 +19,15 @@ const useStyles = makeStyles({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    height: 1000,
+    height: 500,
+  },
+  topButton: {
+    marginTop: 30,
   },
   taglineContainer: {
     display: "flex",
     flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
   },
   tagline: {
@@ -34,6 +38,7 @@ const useStyles = makeStyles({
   taglineSpan: {
     fontSize: 30,
     fontWeight: 500,
+    paddingLeft: 20,
   },
   summaryBox1: {
     display: "flex",
@@ -120,7 +125,7 @@ function Home() {
               Prevent{" "}
               <span className={classes.taglineSpan}>harmful outcomes.</span>
             </p>
-            <Button variant="contained" color="primary">
+            <Button className={classes.topButton} variant="contained" color="primary">
               Try it out
             </Button>
           </div>
