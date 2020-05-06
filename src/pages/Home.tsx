@@ -6,9 +6,8 @@ import TryIt from "../components/TryIt/TryIt";
 import { makeStyles } from "@material-ui/core/styles";
 import NavBar from "../components/NavBar";
 
-
 const image =
-  "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80";
+  "https://images.unsplash.com/photo-1529236183275-4fdcf2bc987e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60";
 
 const useStyles = makeStyles({
   header: {
@@ -26,23 +25,58 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: 60,
-    marginLeft: 35,
   },
   tagline: {
     fontSize: 40,
-    textAlign: "left",
+    fontWeight: 200,
     width: "50%",
   },
-  summary: {
+  taglineSpan: {
+    fontSize: 30,
+    fontWeight: 500,
+  },
+  summaryBox1: {
     display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgb(214,234,250)",
+    paddingTop: 50,
+    paddingBottom: 50,
+    paddingLeft: 100,
+    paddingRight: 100,
   },
   summOne: {
-    marginTop: 200,
-    fontSize: 30,
+    width: "30%",
+    fontSize: 25,
+    paddingRight: 35,
+    textAlign: "left",
+  },
+  summaryBox2: {
+    display: "flex",
+    flexDirection: "row-reverse",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgb(214,234,250)",
+    paddingTop: 50,
+    paddingBottom: 50,
+  },
+  summTwo: {
+    display: "flex",
+    flexDirection: "column",
+    width: "30%",
+    fontSize: 25,
+    paddingLeft: 35,
+    textAlign: "left",
   },
   example: {
-    height: 400,
+    display: "flex",
+    flexDirection: "column",
+  },
+  productImage1: {
+    width: 200,
+  },
+  productImage2: {
+    width: 200,
   },
   gContainer: {
     display: "flex",
@@ -74,29 +108,61 @@ function Home() {
 
   return (
     <div>
+      <NavBar />
       <div>
         <div className={classes.header}>
-          <NavBar />
           <div className={classes.taglineContainer}>
-            <p className={classes.tagline}>Detect toxic language early.</p>
-            <p className={classes.tagline}>Prevent harmful outcomes.</p>
-          </div>
-          <div className={classes.summary}>
-            <p className={classes.summOne}>
-              Get a general understanding of the culture in your company with
-              text toxicity analysis from Big Armor. Use this infomation to
-              shape the current and future culture of communication within your
-              company.
+            <p className={classes.tagline}>
+              Detect{" "}
+              <span className={classes.taglineSpan}>toxic language early.</span>
             </p>
+            <p className={classes.tagline}>
+              Prevent{" "}
+              <span className={classes.taglineSpan}>harmful outcomes.</span>
+            </p>
+            <Button variant="contained" color="primary">
+              Try it out
+            </Button>
           </div>
         </div>
       </div>
       <div className={classes.example}>
-        <h4>try it out example goes here</h4>
-        {/* try it component with dummy data passed in */}
-        <Button variant="contained" color="primary">
-          Try it out
-        </Button>
+        <div className={classes.summaryBox1}>
+          <p className={classes.summOne}>
+            Get a general understanding of the culture in your company with text
+            toxicity analysis from Big Armor.
+          </p>
+          <div>
+            <img
+              className={classes.productImage1}
+              src="https://i.imgur.com/A3P7VaY.jpg"
+              alt="written computer code diplayed on monitor"
+            />
+          </div>
+        </div>
+        <div className={classes.summaryBox2}>
+          <div className={classes.summTwo}>
+            <p>
+              Useful infomation that helps shape the current and future culture
+              of your company.
+            </p>
+
+            <div>
+              <h4>try it out example goes here</h4>
+              {/* try it component with dummy data passed in */}
+              <Button variant="contained" color="primary">
+                Try it out
+              </Button>
+            </div>
+          </div>
+          <div>
+            <img
+              className={classes.productImage2}
+              src="https://i.imgur.com/A3P7VaY.jpg"
+              alt="written computer code diplayed on monitor"
+            />
+          </div>
+        </div>
       </div>
       <Grid
         container
@@ -126,7 +192,9 @@ function Home() {
       <div className={classes.tryIt}>
         <TryIt />
       </div>
+      <NavBar />
     </div>
+    
   );
 }
 

@@ -3,27 +3,27 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-  logo: {
-    display: "flex",
-    justifyContent: "left",
-    paddingLeft: 40,
-  },
+  // logo: {
+  //   display: "flex",
+  //   justifyContent: "center",
+  //   paddingLeft: 40,
+  // },
   navBar: {
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     fontSize: 25,
   },
   headerDisplay: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     alignItems: "center",
-    paddingTop: 25,
+    backgroundColor: "#4057b1",
   },
   navLink: {
     paddingRight: 15,
     paddingLeft: 15,
-    marginLeft: 10,
-    marginRight: 10,
+    marginRight: 100,
+    marginLeft: 100,
     textDecoration: "none",
     backgroundColor: "rgba(220, 220, 220, 0.4)",
     borderRadius: 8,
@@ -39,7 +39,7 @@ function NavBar() {
       <img
         src="https://www.bigarmor.com/wp-content/uploads/Big-Armor-Logo.png"
         alt="Big Armor logo"
-        className={classes.logo}
+        // className={classes.logo}
       />
       <nav className={classes.navBar}>
         <Link className={classes.navLink} to="/">
