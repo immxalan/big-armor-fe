@@ -25,9 +25,7 @@ const useStyles = makeStyles({
     marginRight: 100,
     marginLeft: 100,
     textDecoration: "none",
-    backgroundColor: "rgba(220, 220, 220, 0.4)",
-    borderRadius: 8,
-    color: "black",
+    color: "white",
   },
 });
 
