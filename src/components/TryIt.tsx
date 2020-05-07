@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Graph from "./RadarGraph/Graph";
 import InputForm from "./RadarGraph/InputForm";
 import Legend from "./RadarGraph/Legend";
 import { DataRadarCreater, DataSetCreater } from "../helpers/CreateRadarData"
 import Colors from "../helpers/Colors"
 import { MockResponseOne, MockResponseTwo, MockResponseThree } from "../helpers/MockApiResponses"
+import axios from "axios"
+import MockAdapter from "axios-mock-adapter"
 
 function RadarGraph() {
+
+  const [input, setInput] = useState("")
 
   //creates the full dataset with three sets initialised
   let dataRadar: { datasets: { backgroundColor: string, label: string }[], labels: string[] } = DataRadarCreater(MockResponseOne);
@@ -14,8 +18,29 @@ function RadarGraph() {
   dataRadar.datasets.push(DataSetCreater(MockResponseTwo, dataRadar.labels, Colors[dataRadar.datasets.length]))
   dataRadar.datasets.push(DataSetCreater(MockResponseThree, dataRadar.labels, Colors[dataRadar.datasets.length]))
 
-  console.log(dataRadar);
+  // This sets the mock adapter on the default instance
+  var mock = new MockAdapter(axios);
 
+  // Mock GET request to /users when param `searchText` is 'John'
+  // arguments for reply are (status, data, headers)
+  mock.onPost("/users").reply(req => {
+    let reqData = JSON.parse(req.data)
+    let res = {
+      ...reqData.params.mockResponse,
+      text: reqData.params.text
+    }
+    return [200, {
+      res
+    }]
+  });
+
+  useEffect(() => {
+    axios
+      .post("/users", { params: { mockResponse: MockResponseOne, text: input } })
+      .then(response => {
+        console.log(response);
+      });
+  }, [input])
 
   return (
     <div>
@@ -24,7 +49,7 @@ function RadarGraph() {
         strings
       </p>
       <Graph dataRadar={dataRadar} />
-      <InputForm />
+      <InputForm setInput={setInput} />
       <Legend legend={dataRadar} />
     </div>
   );
