@@ -40,7 +40,7 @@ function About() {
           />
           <p>Bernd de Kruik</p>
           <p>Web Developer</p>
-          <a href="https://github.com/MorbidMiyako"><img className={classes.githubLogo} src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github logo"/></a>
+          <a href="https://github.com/MorbidMiyako"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
           
         </div>
         <div className={classes.teammember}>
@@ -52,7 +52,7 @@ function About() {
             />
             <p>Brandy Becker</p>
             <p>Web Developer</p>
-            <a href="https://github.com/brandybecker"><img className={classes.githubLogo} src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github logo"/></a>
+            <a href="https://github.com/brandybecker"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -62,7 +62,7 @@ function About() {
           />
           <p>Marco White</p>
             <p>Web Developer</p>
-            <a href="https://github.com/marwhyte"><img className={classes.githubLogo} src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github logo"/></a>
+            <a href="https://github.com/marwhyte"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -72,7 +72,7 @@ function About() {
           />
           <p>Allen Do</p>
             <p>Web Developer</p>
-            <a href="https://github.com/immxalan"><img className={classes.githubLogo} src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github logo"/></a>
+            <a href="https://github.com/immxalan"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -82,7 +82,7 @@ function About() {
           />
           <p>Celeste Griffin</p>
             <p>Data Scientist</p>
-            <a href="https://github.com/celestebgriff"><img className={classes.githubLogo} src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github logo"/></a>
+            <a href="https://github.com/celestebgriff"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -92,7 +92,7 @@ function About() {
           />
           <p>Andronik Mkrtychev</p>
             <p>Data Scientist</p>
-            <a href="https://github.com/andronikmk"><img className={classes.githubLogo} src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github logo"/></a>
+            <a href="https://github.com/andronikmk"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -102,7 +102,7 @@ function About() {
           />
           <p>Anna Franceschi</p>
             <p>Web Developer</p>
-            <a href="https://github.com/bamfranceschi"><img className={classes.githubLogo} src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github logo"/></a>
+            <a href="https://github.com/bamfranceschi"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -112,7 +112,7 @@ function About() {
           />
           <p>Richard Lynch</p>
             <p>Web Developer</p>
-            <a href="https://github.com/richknicks"><img className={classes.githubLogo} src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github logo"/></a>
+            <a href="https://github.com/richknicks"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
         </div>
       </div>
     </div>
