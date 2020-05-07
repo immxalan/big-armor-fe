@@ -44,7 +44,6 @@ function About() {
           
         </div>
         <div className={classes.teammember}>
-          <a href="https://github.com/brandybecker"></a>
           <img
             className={classes.profilePic}
             src="https://avatars2.githubusercontent.com/u/52930131?s=460&u=9e967082f9299e499214b87757e31c21d2aaab93&v=4"
@@ -101,7 +100,7 @@ function About() {
             alt="Anna Franceschi"
           />
           <p>Anna Franceschi</p>
-            <p>Web Developer</p>
+            <p>Team Lead</p>
             <a href="https://github.com/bamfranceschi"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
         </div>
         <div className={classes.teammember}>
