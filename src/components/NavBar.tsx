@@ -26,6 +26,7 @@ const useStyles = makeStyles({
     marginLeft: 100,
     textDecoration: "none",
     color: "white",
+    whiteSpace: "nowrap",
   },
 });
 

@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     borderRadius: 12,
     width: 200,
   },
-  githubLogo:{
+  githubLogo: {
     width: 100,
   },
   teammember: {
@@ -21,7 +21,14 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
     lineHeight: 0.25,
-  }
+    padding: ".5%",
+    borderRadius: 10,
+    "&:hover": {
+      top: "-3px",
+      left: "-3px",
+      boxShadow: "3px 3px 15px 0px rgba(82, 82, 82, 0.85)",
+    },
+  },
 });
 
 function About() {
@@ -40,18 +47,29 @@ function About() {
           />
           <p>Bernd de Kruik</p>
           <p>Web Developer</p>
-          <a href="https://github.com/MorbidMiyako"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
-          
+          <a href="https://github.com/MorbidMiyako">
+            <img
+              className={classes.githubLogo}
+              src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg"
+              alt="Github logo"
+            />
+          </a>
         </div>
         <div className={classes.teammember}>
           <img
             className={classes.profilePic}
             src="https://avatars2.githubusercontent.com/u/52930131?s=460&u=9e967082f9299e499214b87757e31c21d2aaab93&v=4"
             alt="Brandy Becker"
+          />
+          <p>Brandy Becker</p>
+          <p>Web Developer</p>
+          <a href="https://github.com/brandybecker">
+            <img
+              className={classes.githubLogo}
+              src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg"
+              alt="Github logo"
             />
-            <p>Brandy Becker</p>
-            <p>Web Developer</p>
-            <a href="https://github.com/brandybecker"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
+          </a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -60,8 +78,14 @@ function About() {
             alt="Marco White"
           />
           <p>Marco White</p>
-            <p>Web Developer</p>
-            <a href="https://github.com/marwhyte"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
+          <p>Web Developer</p>
+          <a href="https://github.com/marwhyte">
+            <img
+              className={classes.githubLogo}
+              src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg"
+              alt="Github logo"
+            />
+          </a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -70,8 +94,14 @@ function About() {
             alt="Allen Do"
           />
           <p>Allen Do</p>
-            <p>Web Developer</p>
-            <a href="https://github.com/immxalan"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
+          <p>Web Developer</p>
+          <a href="https://github.com/immxalan">
+            <img
+              className={classes.githubLogo}
+              src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg"
+              alt="Github logo"
+            />
+          </a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -80,8 +110,14 @@ function About() {
             alt="Celeste Griffin"
           />
           <p>Celeste Griffin</p>
-            <p>Data Scientist</p>
-            <a href="https://github.com/celestebgriff"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
+          <p>Data Scientist</p>
+          <a href="https://github.com/celestebgriff">
+            <img
+              className={classes.githubLogo}
+              src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg"
+              alt="Github logo"
+            />
+          </a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -90,8 +126,14 @@ function About() {
             alt="Andronik Mkrtychev"
           />
           <p>Andronik Mkrtychev</p>
-            <p>Data Scientist</p>
-            <a href="https://github.com/andronikmk"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
+          <p>Data Scientist</p>
+          <a href="https://github.com/andronikmk">
+            <img
+              className={classes.githubLogo}
+              src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg"
+              alt="Github logo"
+            />
+          </a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -100,8 +142,14 @@ function About() {
             alt="Anna Franceschi"
           />
           <p>Anna Franceschi</p>
-            <p>Team Lead</p>
-            <a href="https://github.com/bamfranceschi"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
+          <p>Team Lead</p>
+          <a href="https://github.com/bamfranceschi">
+            <img
+              className={classes.githubLogo}
+              src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg"
+              alt="Github logo"
+            />
+          </a>
         </div>
         <div className={classes.teammember}>
           <img
@@ -110,8 +158,14 @@ function About() {
             alt="Richard Lynch"
           />
           <p>Richard Lynch</p>
-            <p>Web Developer</p>
-            <a href="https://github.com/richknicks"><img className={classes.githubLogo} src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg" alt="Github logo"/></a>
+          <p>Web Developer</p>
+          <a href="https://github.com/richknicks">
+            <img
+              className={classes.githubLogo}
+              src="https://i.pinimg.com/600x315/2c/b6/70/2cb670b6ddd8922a1c1b2fee4f6f758c.jpg"
+              alt="Github logo"
+            />
+          </a>
         </div>
       </div>
     </div>
