@@ -2,7 +2,6 @@ import React from "react";
 import { Radar } from "react-chartjs-2";
 
 function Graph(props: { dataRadar: {} }) {
-
   return (
     <div>
       <p>this will be our graph component</p>
@@ -11,8 +10,9 @@ function Graph(props: { dataRadar: {} }) {
         data={props.dataRadar}
         options={{
           responsive: true,
-          legend: { display: false }
-        }} />
+          legend: { display: true },
+        }}
+      />
     </div>
   );
 }
