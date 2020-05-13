@@ -5,15 +5,16 @@ function Legend(props: {
   legend: { datasets: { backgroundColor: string; label: string }[] };
 }) {
   return (
-    <div>
+    <div className="legendAllDataSets">
       {props.legend.datasets.map(
         (dataset: { backgroundColor: string; label: string }) => {
           return (
-            <div key={dataset.label}>
-              <p>this will be our legend component</p>
-              <p style={{ backgroundColor: `${dataset.backgroundColor}` }}>
-                {dataset.label}
-              </p>
+            <div key={dataset.label} className="legendOneDataSet">
+              <div
+                style={{ backgroundColor: `${dataset.backgroundColor}` }}
+                className="smallBox"
+              ></div>
+              <p className="paragraphSpacing">{dataset.label}</p>
             </div>
           );
         }

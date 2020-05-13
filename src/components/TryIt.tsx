@@ -2,48 +2,77 @@ import React, { useState, useEffect } from "react";
 import Graph from "./RadarGraph/Graph";
 import InputForm from "./RadarGraph/InputForm";
 import Legend from "./RadarGraph/Legend";
-import { DataRadarCreater, DataSetCreater } from "../helpers/CreateRadarData"
-import Colors from "../helpers/Colors"
-import { MockResponseOne, MockResponseTwo, MockResponseThree } from "../helpers/MockApiResponses"
-import axios from "axios"
-import MockAdapter from "axios-mock-adapter"
+import { DataRadarCreater, DataSetCreater } from "../helpers/CreateRadarData";
+import Colors from "../helpers/Colors";
+import {
+  MockResponseOne,
+  MockResponseTwo,
+  MockResponseThree,
+} from "../helpers/MockApiResponses";
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
 
 function RadarGraph() {
-
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState("");
 
   //creates the full dataset with three sets initialised
-  let dataRadar: { datasets: { backgroundColor: string, label: string }[], labels: string[] } = DataRadarCreater(MockResponseOne);
-  dataRadar.datasets.push(DataSetCreater(MockResponseOne, dataRadar.labels, Colors[dataRadar.datasets.length]))
-  dataRadar.datasets.push(DataSetCreater(MockResponseTwo, dataRadar.labels, Colors[dataRadar.datasets.length]))
-  dataRadar.datasets.push(DataSetCreater(MockResponseThree, dataRadar.labels, Colors[dataRadar.datasets.length]))
+  let dataRadar: {
+    datasets: { backgroundColor: string; label: string }[];
+    labels: string[];
+  } = DataRadarCreater(MockResponseOne);
+  dataRadar.datasets.push(
+    DataSetCreater(
+      MockResponseOne,
+      dataRadar.labels,
+      Colors[dataRadar.datasets.length]
+    )
+  );
+  dataRadar.datasets.push(
+    DataSetCreater(
+      MockResponseTwo,
+      dataRadar.labels,
+      Colors[dataRadar.datasets.length]
+    )
+  );
+  dataRadar.datasets.push(
+    DataSetCreater(
+      MockResponseThree,
+      dataRadar.labels,
+      Colors[dataRadar.datasets.length]
+    )
+  );
 
   // This sets the mock adapter on the default instance
   var mock = new MockAdapter(axios);
 
   // Mock GET request to /users when param `searchText` is 'John'
   // arguments for reply are (status, data, headers)
-  mock.onPost("/users").reply(req => {
-    let reqData = JSON.parse(req.data)
+  mock.onPost("/users").reply((req) => {
+    let reqData = JSON.parse(req.data);
     let res = {
       ...reqData.params.mockResponse,
-      text: reqData.params.text
-    }
-    return [200, {
-      res
-    }]
+      text: reqData.params.text,
+    };
+    return [
+      200,
+      {
+        res,
+      },
+    ];
   });
 
   useEffect(() => {
     axios
-      .post("/users", { params: { mockResponse: MockResponseOne, text: input } })
-      .then(response => {
+      .post("/users", {
+        params: { mockResponse: MockResponseOne, text: input },
+      })
+      .then((response) => {
         console.log(response);
       });
-  }, [input])
+  }, [input]);
 
   return (
-    <div>
+    <div className="tryItSection">
       <p>
         This secion will contain the text area, the graph, and the legend of
         strings
