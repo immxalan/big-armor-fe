@@ -1,22 +1,11 @@
 import React from "react";
 import NavBar from "../components/NavBar";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles({
-  container: {
-    width: "75%",
-    textAlign: "left",
-    margin: "auto",
-  },
-});
 
 function API() {
-  const classes = useStyles();
-
   return (
     <div>
       <NavBar />
-      <div className={classes.container}>
+      <div className="container">
         <h1>The API uses FastAPI for documentation</h1>
         <ul>
           <li>

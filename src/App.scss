@@ -1,0 +1,151 @@
+$primary: #4057b1;
+
+.App {
+  text-align: center;
+  width: 100%;
+}
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+}
+.headerDisplay {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $primary;
+}
+.navLink {
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 100px;
+  margin-left: 100px;
+  border-radius: 7px;
+  text-decoration: none;
+  color: white;
+  white-space: nowrap;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* SCREEN */
+
+//Home Screen
+header {
+  // background-image: linear-gradient(
+  //     rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.5)
+  //   ),
+  //   url("https://images.unsplash.com/photo-1529236183275-4fdcf2bc987e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+.topButton {
+  margin-top: 30px;
+}
+.taglineContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tagline {
+  font-size: 40px;
+  font-weight: 200px;
+  width: 50%;
+}
+.taglineSpan {
+  font-size: 30px;
+  font-weight: 500px;
+  padding-left: 20px;
+}
+.summaryBox1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(214, 234, 250);
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.summOne {
+  width: 30%;
+  font-size: 25px;
+  padding-right: 35px;
+  text-align: left;
+}
+.summaryBox2 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(214, 234, 250);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.summTwo {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  font-size: 25px;
+  padding-left: 35px;
+  text-align: left;
+}
+.example {
+  display: flex;
+  flex-direction: column;
+}
+.productImage1 {
+  width: 200px;
+}
+.productImage2 {
+  width: 200px;
+}
+.gContainer {
+  flex-grow: 3;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 4%;
+}
+.gItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  width: 250px;
+  height: 200px;
+  padding: 3%;
+  display: flex;
+  align-items: center;
+}
+.tryIt {
+  display: flex;
+  height: 500;
+  justify-content: center;
+  align-content: center;
+}
+
+//API Docs page
+
+.container {
+  width: 75%;
+  text-align: "left";
+  margin: "auto";
+}
