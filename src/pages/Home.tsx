@@ -1,18 +1,76 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import TryIt from "../components/TryIt/TryIt";
 import NavBar from "../components/NavBar";
+import * as am4core from "@amcharts/amcharts4/core";
+import * as am4charts from "@amcharts/amcharts4/charts";
+import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import am4themes_dark from "@amcharts/amcharts4/themes/dark";
+
+am4core.useTheme(am4themes_dark);
+am4core.useTheme(am4themes_animated);
+function animateBullet(bullet: any) {
+  let duration = 3000 * Math.random() + 2000;
+  let animation = bullet.animate(
+    [{ property: "locationX", from: 0, to: 1 }],
+    duration
+  );
+  animation.events.on("animationended", function (event: any) {
+    animateBullet(event.target.object);
+  });
+}
 
 function Home() {
+  useEffect(() => {
+    let chart = am4core.create("chartdiv", am4charts.ChordDiagram);
+
+    chart.data = [
+      { from: "Identity Hate", to: "Severe Toxic", value: 10 },
+      { from: "Insult", to: "Severe Toxic", value: 8 },
+      { from: "Insult", to: "Threat", value: 4 },
+      { from: "Insult", to: "Toxic", value: 2 },
+      { from: "Toxic", to: "Threat", value: 14 },
+      { from: "Threat", to: "Severe Toxic", value: 8 },
+      { from: "Toxic", to: "Identity Hate", value: 4 },
+      { from: "Obscene", to: "Identity Hate", value: 7 },
+      { from: "Severe Toxic", to: "Insult", value: 1 },
+    ];
+    chart.dataFields.color = "white";
+    chart.dataFields.fromName = "from";
+    chart.dataFields.toName = "to";
+    chart.dataFields.value = "value";
+
+    // make nodes draggable
+    let nodeTemplate = chart.nodes.template;
+    nodeTemplate.readerTitle = "Click to show/hide or drag to rearrange";
+    nodeTemplate.showSystemTooltip = false;
+
+    let nodeLink = chart.links.template;
+    let bullet = nodeLink.bullets.push(new am4charts.CircleBullet());
+    bullet.fillOpacity = 1;
+    bullet.circle.radius = 5;
+    bullet.locationX = 0.5;
+    // create animations
+    chart.events.on("ready", function () {
+      for (var i = 0; i < chart.links.length; i++) {
+        // @ts-ignore
+        let link = chart.links.getIndex(i);
+        // @ts-ignore
+        let bullet = link.bullets.getIndex(0);
+
+        animateBullet(bullet);
+      }
+    });
+  });
   //onClick function to route to TryIt component
 
   return (
     <div>
       <NavBar />
       <div>
-        <div className="header">
+        <div className="welcomeTop">
           <div className="taglineContainer">
             <p className="tagline">
               Detect <span className="taglineSpan">toxic language early.</span>
@@ -24,6 +82,7 @@ function Home() {
               Try it out
             </Button>
           </div>
+          <div id="chartdiv" style={{ width: "27%", height: "500px" }}></div>
         </div>
       </div>
       <div className="example">
