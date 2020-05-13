@@ -84,17 +84,20 @@ const useStyles = makeStyles({
     width: 200,
   },
   gContainer: {
-    display: "flex",
     flexGrow: 3,
-    justifyItems: "center",
-    paddingLeft: 30,
-    paddingRight: 30,
+    display: "flex",
+    justifyContent: "space-evenly",
+    padding: "4%",
   },
   gItem: {
-    height: 200,
-    width: 200,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   content: {
+    width: 250,
+    height: 200,
+    padding: "3%",
     display: "flex",
     alignItems: "center",
   },
@@ -125,7 +128,11 @@ function Home() {
               Prevent{" "}
               <span className={classes.taglineSpan}>harmful outcomes.</span>
             </p>
-            <Button className={classes.topButton} variant="contained" color="primary">
+            <Button
+              className={classes.topButton}
+              variant="contained"
+              color="primary"
+            >
               Try it out
             </Button>
           </div>
@@ -169,26 +176,21 @@ function Home() {
           </div>
         </div>
       </div>
-      <Grid
-        container
-        spacing={6}
-        className={classes.gContainer}
-        justify="center"
-      >
+      <Grid container spacing={3} className={classes.gContainer}>
         <Grid item xs className={classes.gItem}>
-          <Paper className={classes.content}>
+          <Paper elevation={3} className={classes.content}>
             Big Armor quickly evaluates submitted text for toxicity levels,
             allowing you to detect toxic or harmful language.
           </Paper>
         </Grid>
         <Grid item xs className={classes.gItem}>
-          <Paper className={classes.content}>
+          <Paper elevation={3} className={classes.content}>
             Detect and prevent online bullying and hate speech in online social
             media platforms or forums you manage.
           </Paper>
         </Grid>
         <Grid item xs className={classes.gItem}>
-          <Paper className={classes.content}>
+          <Paper elevation={3} className={classes.content}>
             Discover negative employee or customer feedback faster with Big
             Armor, helping you efficiently improve your workspace or product
           </Paper>
@@ -199,7 +201,6 @@ function Home() {
       </div>
       <NavBar />
     </div>
-    
   );
 }
 
