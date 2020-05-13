@@ -22,11 +22,17 @@ const useStyles = makeStyles({
   navLink: {
     paddingRight: 15,
     paddingLeft: 15,
+    paddingTop: 10,
+    paddingBottom: 10,
     marginRight: 100,
     marginLeft: 100,
+    borderRadius: 7,
     textDecoration: "none",
     color: "white",
     whiteSpace: "nowrap",
+    "&:hover": {
+      backgroundColor: "rgba(0,0,0,.3)",
+    },
   },
 });
 
