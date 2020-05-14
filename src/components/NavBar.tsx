@@ -5,7 +5,7 @@ function NavBar() {
   return (
     <div className="headerDisplay">
       <div className="headerFlexContainer">
-        <div>
+        <div id='logo'>
           <img
             src="https://www.bigarmor.com/wp-content/uploads/Big-Armor-Logo.png"
             alt="Big Armor logo"
