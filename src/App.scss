@@ -26,8 +26,6 @@ body {
   width: 100%;
   top: 0;
   background-color: $primary;
-  @media (min-width: $desktop){
-  }
 
 }
 .headerFlexContainer{
@@ -47,15 +45,12 @@ body {
   padding-top: 3%;
 }
 .navLink {
-  border-radius: 5px;
+  border-radius: 1px;
   text-decoration: none;
   color: white;
   white-space: nowrap;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  @media (min-width: $desktop) {
-    
+    border-bottom: 1px solid lightblue;
   }
 }
 

@@ -3,11 +3,17 @@ import NavBar from "../components/NavBar";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
+  header: {
+    paddingTop: '12%'
+  },
   team: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     alignItems: "center",
+    margin: '0 auto',
+    paddingTop: '3%',
+    width: '75%'
   },
   profilePic: {
     borderRadius: 12,
@@ -37,7 +43,7 @@ function About() {
   return (
     <div>
       <NavBar />
-      <h1>The Team</h1>
+      <h1 className={classes.header}>The Team</h1>
       <div className={classes.team}>
         <div className={classes.teammember}>
           <img
