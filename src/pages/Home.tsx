@@ -74,12 +74,12 @@ function Home() {
           <div className="taglineContainer">
             <div>
             <p className="tagline1">
-              Detect <span className="taglineSpan">toxic language early.</span>
+            <span className='taglineHighlight'>Detect</span> <span className="taglineSpan">toxic language early.</span>
             </p>
             </div>
             <div>
             <p className="tagline2">
-              Prevent <span className="taglineSpan">harmful outcomes.</span>
+            <span className='taglineHighlight'>Prevent</span> <span className="taglineSpan">harmful outcomes.</span>
             </p>
             </div>
             <Button className="topButton" variant="contained" color= "secondary">
