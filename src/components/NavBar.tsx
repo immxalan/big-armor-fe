@@ -34,23 +34,23 @@ export default class NavBar extends Component {
             />
           </div>
           <div className="allLinkContainer">
-            <Link to="/">
+            <Link className="smallWidth" to="/">
               <span>Home</span>
             </Link>
 
-            <Link to="/try-it">
+            <Link className="mediumWidth" to="/try-it">
               <span>Try It</span>
             </Link>
 
-            <Link to="/api-docs">
+            <Link className="largeWidth" to="/api-docs">
               <span>API Documentation</span>
             </Link>
 
-            <Link to="/model-docs">
+            <Link className="largeWidth" to="/model-docs">
               <span>Model Documentation</span>
             </Link>
 
-            <Link to="/about">
+            <Link className="mediumWidth" to="/about">
               <span>About</span>
             </Link>
           </div>
