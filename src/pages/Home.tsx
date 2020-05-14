@@ -27,15 +27,15 @@ function Home() {
     let chart = am4core.create("chartdiv", am4charts.ChordDiagram);
 
     chart.data = [
-      { from: "Identity Hate", to: "Severe Toxic", value: 10 },
-      { from: "Insult", to: "Severe Toxic", value: 8 },
+      { from: "Identity Hate", to: "Severe", value: 10 },
+      { from: "Insult", to: "Severe", value: 8 },
       { from: "Insult", to: "Threat", value: 4 },
       { from: "Insult", to: "Toxic", value: 2 },
       { from: "Toxic", to: "Threat", value: 14 },
-      { from: "Threat", to: "Severe Toxic", value: 8 },
+      { from: "Threat", to: "Severe", value: 8 },
       { from: "Toxic", to: "Identity Hate", value: 4 },
       { from: "Obscene", to: "Identity Hate", value: 7 },
-      { from: "Severe Toxic", to: "Insult", value: 1 },
+      { from: "Severe", to: "Insult", value: 1 },
     ];
     chart.dataFields.color = "white";
     chart.dataFields.fromName = "from";
@@ -69,37 +69,43 @@ function Home() {
   return (
     <div>
       <NavBar />
-      <div>
-        <div className="welcomeTop">
-          <div className="taglineContainer">
-            <div>
-            <p className="tagline1">
-            <span className='taglineHighlight'>Detect</span> <span className="taglineSpan">toxic language early.</span>
-            </p>
-            </div>
-            <div>
-            <p className="tagline2">
-            <span className='taglineHighlight'>Prevent</span> <span className="taglineSpan">harmful outcomes.</span>
-            </p>
-            </div>
-            <Button className="topButton" variant="contained" color= "secondary">
-              Try it out
-            </Button>
-          </div>
-          <div id="chartdiv" style={{ width: "27%", height: "500px" }}></div>
-        </div>
-      </div>
-      <section id='movingBanner'>
+      <div className="topView">
         <div>
-          <h2 className='bannerText'>
-            
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            doloremque veniam modi, unde sunt deleniti tenetur voluptate nisi
-            autem distinctio neque quae aperiam rerum reprehenderit hic!
-            Mollitia sit voluptas quod.
-          </h2>
+          <div className="welcomeTop">
+            <div className="taglineContainer">
+              <div>
+                <p className="tagline1">
+                  <span className="taglineHighlight">Detect</span>{" "}
+                  <span className="taglineSpan">toxic language early.</span>
+                </p>
+              </div>
+              <div>
+                <p className="tagline2">
+                  <span className="taglineHighlight">Prevent</span>{" "}
+                  <span className="taglineSpan">harmful outcomes.</span>
+                </p>
+              </div>
+              <Button
+                className="topButton"
+                variant="contained"
+                color="secondary"
+              >
+                Try it out
+              </Button>
+            </div>
+            <div id="chartdiv" style={{ width: "490px", height: "50vh" }}></div>
+          </div>
         </div>
-        {/* <div>
+        <section id="movingBanner">
+          <div>
+            <h2 className="bannerText">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+              doloremque veniam modi, unde sunt deleniti tenetur voluptate nisi
+              autem distinctio neque quae aperiam rerum reprehenderit hic!
+              Mollitia sit voluptas quod.
+            </h2>
+          </div>
+          {/* <div>
           <h2 className='bannerText'>
             
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
@@ -108,7 +114,8 @@ function Home() {
             Mollitia sit voluptas quod.
           </h2>
         </div> */}
-      </section>
+        </section>
+      </div>
       <div className="example">
         <div className="summaryBox1">
           <p className="summOne">
