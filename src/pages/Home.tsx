@@ -72,19 +72,43 @@ function Home() {
       <div>
         <div className="welcomeTop">
           <div className="taglineContainer">
-            <p className="tagline">
+            <div>
+            <p className="tagline1">
               Detect <span className="taglineSpan">toxic language early.</span>
             </p>
-            <p className="tagline">
+            </div>
+            <div>
+            <p className="tagline2">
               Prevent <span className="taglineSpan">harmful outcomes.</span>
             </p>
-            <Button className="topButton" variant="contained" color="primary">
+            </div>
+            <Button className="topButton" variant="contained" color= "secondary">
               Try it out
             </Button>
           </div>
           <div id="chartdiv" style={{ width: "27%", height: "500px" }}></div>
         </div>
       </div>
+      <section id='movingBanner'>
+        <div>
+          <h2 className='bannerText'>
+            
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+            doloremque veniam modi, unde sunt deleniti tenetur voluptate nisi
+            autem distinctio neque quae aperiam rerum reprehenderit hic!
+            Mollitia sit voluptas quod.
+          </h2>
+        </div>
+        {/* <div>
+          <h2 className='bannerText'>
+            
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+            doloremque veniam modi, unde sunt deleniti tenetur voluptate nisi
+            autem distinctio neque quae aperiam rerum reprehenderit hic!
+            Mollitia sit voluptas quod.
+          </h2>
+        </div> */}
+      </section>
       <div className="example">
         <div className="summaryBox1">
           <p className="summOne">
@@ -107,9 +131,8 @@ function Home() {
             </p>
 
             <div>
-              <h4>try it out example goes here</h4>
               {/* try it component with dummy data passed in */}
-              <Button variant="contained" color="primary">
+              <Button variant="contained" color="secondary">
                 Try it out
               </Button>
             </div>
