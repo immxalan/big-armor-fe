@@ -300,10 +300,10 @@ body {
   div {
     position: relative;
     width: 100%;
-    background: #4286f4;
+    background: white;
     overflow: hidden;
     .bannerText {
-      color: white;
+      color: $primary;
       position: absolute;
       white-space: nowrap;
       font-size: 4em;
@@ -404,13 +404,122 @@ body {
   }
 }
 //API Docs page
-
-.container {
-  width: 75%;
-  text-align: "left";
-  margin: "auto";
+.navbarCoverWhiteSpace {
+  height: 160px;
+  width: 100%;
 }
+.docsContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+.docsNav {
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: fixed;
+  margin-top: 1%;
+  .selectedDoc {
+    color: #556cd6;
+    background-color: #f5fbff;
+  }
+  .notSelectedDoc {
+    color: #2a2f45;
+    background-color: #fff;
+  }
+  a {
+    text-decoration: none;
+    padding: 3% 5%;
+    border-radius: 10px;
+  }
+}
+.textContainer {
+  width: 70%;
+  text-align: left;
+  margin-left: 15%;
+  margin-top: 2%;
+  .docsOpen {
+    color: #5469d4;
+    font-weight: 600;
 
+    cursor: pointer;
+    &:hover {
+      color: #233483;
+    }
+  }
+  #intro {
+    padding-top: 80px;
+    margin-top: -80px;
+  }
+  #preprocessing {
+    padding-top: 80px;
+    margin-top: -80px;
+  }
+  #requests {
+    padding-top: 80px;
+    margin-top: -80px;
+  }
+  #model {
+    padding-top: 80px;
+    margin-top: -80px;
+  }
+  #deploy {
+    padding-top: 80px;
+    margin-top: -80px;
+  }
+  h1 {
+    color: #2a2f45;
+    font-size: 1.5rem;
+  }
+  h2 {
+    color: #2a2f45;
+    font-size: 1.2rem;
+  }
+  p {
+    color: #4f566b;
+    font-size: 1rem;
+  }
+  li {
+    color: #4f566b;
+    list-style-type: circle;
+  }
+  .docSection {
+    padding: 4% 7%;
+    border-bottom: 1px solid #e3e8ee;
+    border-left: 1px solid #e3e8ee;
+    width: 100%;
+  }
+}
+//api docs media queries
+@media (max-width: 1078px) {
+  .docsNav {
+    width: 40%;
+  }
+  .textContainer {
+    width: 60%;
+    margin-left: 20%;
+  }
+}
+@media (max-width: 790px) {
+  .docsNav {
+    width: 40%;
+  }
+  .textContainer {
+    width: 60%;
+    margin-left: 30%;
+  }
+}
+@media (max-width: 500px) {
+  .docsNav {
+    display: none;
+  }
+  .textContainer {
+    width: 90%;
+    margin-left: 0;
+  }
+}
 //About page
 
 .header {
