@@ -1,6 +1,6 @@
 /* COLOR VARIABLES */
-$primary: #38455b;
-$secondary: red;
+$primary: #394a67;
+$secondary: #ff2c76;
 /* MEDIA QUERY VARIABLES */
 $highResDesktop: 1281px;
 $desktop: 1025px;
@@ -20,49 +20,123 @@ body {
   color: #61dafb;
 }
 
-/* NAVBAR */
-// #logo img {
-//   animation: rotation 0.7s 1 linear;
-//   }
-  
-//   @keyframes rotation {
-//     from {
-//       transform: rotateY(0deg);
-//     }
-//     to {
-//       transform: rotateY(359deg);
-//     }
-//   }
-.headerDisplay {
-  position: fixed; /* Set the navbar to fixed position */
+//goes to 950 px
+.nav {
+  position: fixed;
   width: 100%;
   top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
   background-color: $primary;
+  &.scroll {
+    box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.1);
+    .headerFlexContainer {
+      height: 80px;
+    }
+    .logo {
+      img {
+        height: 60px;
+        margin-right: 142px;
+      }
+    }
+  }
 
+  .headerFlexContainer {
+    height: 160px;
+    padding: 0 2rem;
+    width: 80% !important;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: height 0.3s ease;
+  }
+
+  .logo {
+    img {
+      display: flex;
+      align-items: center;
+      color: #333;
+      margin-right: 100px;
+      font-weight: 500;
+      font-size: 1.3rem;
+
+      &:hover,
+      &:focus {
+        color: green;
+      }
+    }
+
+    .text {
+      display: block;
+      white-space: nowrap;
+    }
+  }
+
+  .allLinkContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    flex: 1;
+    margin: 0;
+
+    a {
+      padding: 0.5% 4%;
+      font-size: 1.2rem;
+      margin: 0 0.5rem;
+      border-bottom: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      line-height: 200%;
+      text-align: center;
+      border-radius: 6px;
+      border-radius: 1px;
+      text-decoration: none;
+      color: white;
+      white-space: nowrap;
+      cursor: pointer;
+
+      &:hover,
+      &:active,
+      &.active {
+        span {
+          border-bottom: 1px solid lightblue;
+        }
+      }
+    }
+  }
 }
-.headerFlexContainer{
-  padding: 1% 1% 0 1%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+// Nav media queries
+@media (max-width: 1340px) {
+  .nav {
+    .allLinkContainer {
+      a {
+        padding: 0.5% 2.5% !important;
+      }
+    }
+  }
 }
-.allLinkContainer{
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  width: 70%;
-  margin-right: 2%;
-}
-.navLinkContainer{
-  padding-top: 3%;
-}
-.navLink {
-  border-radius: 1px;
-  text-decoration: none;
-  color: white;
-  white-space: nowrap;
-  &:hover {
-    border-bottom: 1px solid lightblue;
+@media (max-width: 1102px) {
+  .nav {
+    .logo {
+      img {
+        margin-right: 20px !important;
+      }
+    }
+    .headerFlexContainer {
+      margin-left: 20px !important;
+    }
+    &.scroll {
+      .logo {
+        img {
+          margin-right: 60px !important;
+        }
+      }
+    }
   }
 }
 
@@ -106,7 +180,7 @@ body {
 .taglineHighlight {
   transition: color 1.5s;
   &:hover {
-    color: red;
+    color: $secondary;
   }
 }
 .taglineSpan {
@@ -225,9 +299,9 @@ body {
   padding-top: 12%;
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 2s; /* Firefox < 16 */
-   -ms-animation: fadein 2s; /* Internet Explorer */
-    -o-animation: fadein 2s; /* Opera < 12.1 */
-       animation: fadein 2s;
+  -ms-animation: fadein 2s; /* Internet Explorer */
+  -o-animation: fadein 2s; /* Opera < 12.1 */
+  animation: fadein 2s;
 }
 .teamFlexContainer {
   display: flex;
@@ -239,50 +313,69 @@ body {
   width: 75%;
   -webkit-animation: fadein 2.5s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 2.5s; /* Firefox < 16 */
-   -ms-animation: fadein 2.5s; /* Internet Explorer */
-    -o-animation: fadein 2.5s; /* Opera < 12.1 */
-       animation: fadein 2.5s;
-  
+  -ms-animation: fadein 2.5s; /* Internet Explorer */
+  -o-animation: fadein 2.5s; /* Opera < 12.1 */
+  animation: fadein 2.5s;
 }
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Firefox < 16 */
 @-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Opera < 12.1 */
 @-o-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .teamMember {
   display: flex;
   flex-flow: column;
   align-items: center;
   line-height: 0.25px;
-  padding: .5%;
+  padding: 0.5%;
   border-radius: 5px;
   &:hover {
     top: -3px;
     left: -3px;
-    box-shadow: 3px 3px 15px 0px rgba(82, 82, 82, 0.85),
+    box-shadow: 3px 3px 15px 0px rgba(82, 82, 82, 0.85);
   }
 }
 .profilePic {

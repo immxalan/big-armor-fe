@@ -1,46 +1,61 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-function NavBar() {
-  return (
-    <div className="headerDisplay">
-      <div className="headerFlexContainer">
-        <div id='logo'>
-          <img
-            src="https://www.bigarmor.com/wp-content/uploads/Big-Armor-Logo.png"
-            alt="Big Armor logo"
-          />
-        </div>
-        <div className='allLinkContainer'>
-          <div className="navLinkContainer">
-            <Link className="navLink" to="/">
-              Home
-            </Link>
-          </div>
-          <div className="navLinkContainer">
-            <Link className="navLink" to="/try-it">
-              Try It
-            </Link>
-          </div>
-          <div className="navLinkContainer">
-            <Link className="navLink" to="/api-docs">
-              API Documentation
-            </Link>
-          </div>
-          <div className="navLinkContainer">
-            <Link className="navLink" to="/model-docs">
-              Model Documentation
-            </Link>
-          </div>
-          <div className="navLinkContainer">
-            <Link className="navLink" to="/about">
-              About
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+export default class NavBar extends Component {
+  state = {
+    scrolled: false,
+  };
 
-export default NavBar;
+  componentDidMount() {
+    window.addEventListener("scroll", this.navOnScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.navOnScroll);
+  }
+
+  navOnScroll = () => {
+    if (window.scrollY > 20) {
+      this.setState({ scrolled: true });
+    } else {
+      this.setState({ scrolled: false });
+    }
+  };
+
+  render() {
+    const { scrolled } = this.state;
+    return (
+      <nav className={scrolled ? "nav scroll" : "nav"}>
+        <div className="headerFlexContainer">
+          <div className="logo">
+            <img
+              src="https://www.bigarmor.com/wp-content/uploads/Big-Armor-Logo.png"
+              alt="Big Armor logo"
+            />
+          </div>
+          <div className="allLinkContainer">
+            <Link to="/">
+              <span>Home</span>
+            </Link>
+
+            <Link to="/try-it">
+              <span>Try It</span>
+            </Link>
+
+            <Link to="/api-docs">
+              <span>API Documentation</span>
+            </Link>
+
+            <Link to="/model-docs">
+              <span>Model Documentation</span>
+            </Link>
+
+            <Link to="/about">
+              <span>About</span>
+            </Link>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+}
