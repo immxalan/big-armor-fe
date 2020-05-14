@@ -11,7 +11,7 @@ function API() {
         <div className="docsNav">
           <a
             onClick={() => setWhichSelect("Introduction")}
-            href="/api-docs/#intro"
+            href="#intro"
             className={
               whichSelect === "Introduction" ? "selectedDoc" : "notSelectedDoc"
             }
@@ -20,7 +20,7 @@ function API() {
           </a>
           <a
             onClick={() => setWhichSelect("preprocessing")}
-            href="/api-docs/#preprocessing"
+            href="#preprocessing"
             className={
               whichSelect === "preprocessing" ? "selectedDoc" : "notSelectedDoc"
             }
@@ -29,7 +29,7 @@ function API() {
           </a>
           <a
             onClick={() => setWhichSelect("requests")}
-            href="/api-docs/#requests"
+            href="#requests"
             className={
               whichSelect === "requests" ? "selectedDoc" : "notSelectedDoc"
             }
@@ -38,7 +38,7 @@ function API() {
           </a>
           <a
             onClick={() => setWhichSelect("model")}
-            href="/api-docs/#model"
+            href="#model"
             className={
               whichSelect === "model" ? "selectedDoc" : "notSelectedDoc"
             }
@@ -47,7 +47,7 @@ function API() {
           </a>
           <a
             onClick={() => setWhichSelect("deploy")}
-            href="/api-docs/#deploy"
+            href="#deploy"
             className={
               whichSelect === "deploy" ? "selectedDoc" : "notSelectedDoc"
             }
