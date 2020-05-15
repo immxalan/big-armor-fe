@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
-export default class NavBar extends Component {
+interface props {
+  backgroundTransparent: boolean;
+}
+export default class NavBar extends Component<props> {
   state = {
     scrolled: false,
   };
@@ -26,7 +28,15 @@ export default class NavBar extends Component {
   render() {
     const { scrolled } = this.state;
     return (
-      <nav className={scrolled ? "nav scroll" : "nav"}>
+      <nav
+        className={
+          scrolled
+            ? "nav scroll"
+            : !scrolled && !this.props.backgroundTransparent
+            ? "nav navNotInvis"
+            : "nav"
+        }
+      >
         <div className="headerFlexContainer">
           <div className="logo">
             <img

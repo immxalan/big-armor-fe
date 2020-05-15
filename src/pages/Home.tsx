@@ -68,7 +68,7 @@ function Home() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar backgroundTransparent={true} />
       <div className="topView">
         <div>
           <div className="welcomeTop">
@@ -180,7 +180,7 @@ function Home() {
       <div className="tryIt">
         <TryIt />
       </div>
-      <NavBar />
+      <NavBar backgroundTransparent={true} />
     </div>
   );
 }
