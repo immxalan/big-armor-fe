@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import API from "./pages/API";
 import Model from "./pages/Model";
 import About from "./pages/About";
+import TryIt from "./pages/TryIt";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/try-it">
+            <TryIt />
           </Route>
           <Route path="/api-docs">
             <API />
