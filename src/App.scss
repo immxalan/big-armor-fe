@@ -126,11 +126,7 @@ body {
       margin-right: 100px;
       font-weight: 500;
       font-size: 1.3rem;
-
-      &:hover,
-      &:focus {
-        color: green;
-      }
+      transition: height 4s linear;
     }
 
     .text {
