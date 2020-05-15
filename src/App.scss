@@ -300,10 +300,10 @@ body {
   div {
     position: relative;
     width: 100%;
-    background: white;
+    background: #4286f4;
     overflow: hidden;
     .bannerText {
-      color: $primary;
+      color: white;
       position: absolute;
       white-space: nowrap;
       font-size: 4em;
