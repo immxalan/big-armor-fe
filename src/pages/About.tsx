@@ -8,7 +8,7 @@ function About() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className='aboutPage'>
       <NavBar backgroundTransparent={false} />
       <h1 className="header">The Team</h1>
       <div className="teamFlexContainer">

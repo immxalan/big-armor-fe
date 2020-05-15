@@ -332,6 +332,12 @@ body {
   font-size: 1.9rem;
   font-weight: 500px;
 }
+.example {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  @include fade;
+}
 .summaryBox1 {
   display: flex;
   justify-content: center;
@@ -364,11 +370,6 @@ body {
   font-size: 25px;
   padding-left: 35px;
   text-align: left;
-}
-.example {
-  display: flex;
-  flex-direction: column;
-  @include fade;
 }
 .productImage1 {
   width: 200px;
@@ -421,6 +422,7 @@ body {
       line-height: 10vh;
       animation: animate 120s linear infinite;
     }
+    //Keyframes for scrolling banner
     @keyframes animate {
       0% {
         transform: translateX(0);
@@ -465,8 +467,6 @@ body {
     flex-direction: column;
     justify-content: flex-end !important;
   }
-  .topButton {
-  }
 }
 @media (max-width: 820px) {
   .taglineContainer {
@@ -497,6 +497,35 @@ body {
   .tagline2 {
     height: 4vh;
     margin: 0;
+  }
+
+  .summaryBox1{
+    width: 100%;
+    flex-flow: column wrap;
+    padding: 0;
+  }
+  .summOne{
+    width: 80%;
+    font-size: 20px;
+    margin: 30px auto;
+    padding: 0;
+  }
+  .productImage1{
+    padding: 0;
+    width: 300px;
+    margin: auto auto;
+  }
+  .summaryBox2{
+    flex-flow: column-reverse wrap;
+  }
+  .summTwo{
+    width: 80%;
+    font-size: 20px;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .productImage2{
+    width: 300px;
   }
 }
 @media (max-width: 453px) {
@@ -633,7 +662,9 @@ body {
   }
 }
 //About page
-
+.aboutPage{
+  margin-bottom: 100px;
+}
 .header {
   padding-top: 12%;
   @include fade;

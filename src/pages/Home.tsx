@@ -120,7 +120,7 @@ function Home() {
             Get a general understanding of the culture in your company with text
             toxicity analysis from Big Armor.
           </p>
-          <div>
+          <div className="productImageContainer">
             <img
               className="productImage1"
               src="https://i.imgur.com/A3P7VaY.jpg"
@@ -130,16 +130,11 @@ function Home() {
         </div>
         <div className="summaryBox2">
           <div className="summTwo">
-            <p>
-              Useful infomation that helps shape the current and future culture
-              of your company.
-            </p>
-
             <div>
-              {/* try it component with dummy data passed in */}
-              <Button variant="contained" color="secondary">
-                Try it out
-              </Button>
+              <p>
+                Useful infomation that helps shape the current and future
+                culture of your company.
+              </p>
             </div>
           </div>
           <div>
@@ -171,6 +166,15 @@ function Home() {
           </Paper>
         </Grid>
       </Grid>
+      <div>
+              <Button
+                className="bottomButton"
+                variant="contained"
+                color="secondary"
+              >
+                Try it out
+              </Button>
+            </div>
       <div className="tryIt">
         <TryIt />
       </div>
