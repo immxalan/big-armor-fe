@@ -5,7 +5,7 @@ function API() {
   const [whichSelect, setWhichSelect] = useState("Introduction");
   return (
     <div>
-      <NavBar />
+      <NavBar backgroundTransparent={false} />
       <div className="navbarCoverWhiteSpace"></div>
       <div className="docsContainer">
         <div className="docsNav">

@@ -8,14 +8,14 @@ $navheaderbreak: 900px;
 $tablet: 768px;
 $phone: 320px;
 // MIXINS
-@mixin fade{
+@mixin fade {
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 2s; /* Firefox < 16 */
   -ms-animation: fadein 2s; /* Internet Explorer */
   -o-animation: fadein 2s; /* Opera < 12.1 */
   animation: fadein 2s;
 }
-@mixin fadeFast{
+@mixin fadeFast {
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 1s; /* Firefox < 16 */
   -ms-animation: fadein 1s; /* Internet Explorer */
@@ -93,9 +93,14 @@ body {
   left: 0;
   z-index: 3;
   width: 100%;
-  background-color: $primary;
+  background-color: transparent;
+  &.navNotInvis {
+    background-color: $primary;
+  }
   &.scroll {
     box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.1);
+    background-color: $primary;
+
     .headerFlexContainer {
       height: 80px;
     }
