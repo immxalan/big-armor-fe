@@ -57,10 +57,6 @@ export default class NavBar extends Component<props> {
               <span>API Documentation</span>
             </Link>
 
-            <Link className="largeWidth" to="/model-docs">
-              <span>Model Documentation</span>
-            </Link>
-
             <Link className="mediumWidth" to="/about">
               <span>About</span>
             </Link>

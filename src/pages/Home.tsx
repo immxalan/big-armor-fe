@@ -21,7 +21,6 @@ function animateBullet(bullet: any) {
     animateBullet(event.target.object);
   });
 }
-
 function Home() {
   useEffect(() => {
     let chart = am4core.create("chartdiv", am4charts.ChordDiagram);
@@ -65,7 +64,6 @@ function Home() {
     });
   });
   //onClick function to route to TryIt component
-
   return (
     <div>
       <NavBar backgroundTransparent={true} />

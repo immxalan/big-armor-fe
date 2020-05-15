@@ -232,6 +232,50 @@ body {
     }
   }
 }
+@media (max-width: 672px) {
+  .logo {
+    display: none;
+  }
+  .headerFlexContainer {
+    padding: 0 !important;
+    .allLinkContainer {
+      margin-left: 10% !important;
+      a {
+        font-size: 1rem !important;
+      }
+    }
+  }
+}
+@media (max-width: 571px) {
+  .nav {
+    .headerFlexContainer {
+      .allLinkContainer {
+        margin-left: 1% !important;
+      }
+    }
+  }
+}
+@media (max-width: 534px) {
+  .nav {
+    .allLinkContainer {
+      margin-left: 0% !important;
+      a {
+        font-size: 0.7rem !important;
+      }
+      .smallWidth {
+        margin: 0 !important;
+        width: 30px !important;
+      }
+      .mediumWidth {
+        margin: 0 !important;
+        width: 60px !important;
+      }
+      .largeWidth {
+        width: 110px !important;
+      }
+    }
+  }
+}
 /* SCREEN */
 
 //Home Screen
