@@ -8,6 +8,7 @@ export default class NavBar extends Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.navOnScroll);
+    window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {
