@@ -5,8 +5,11 @@ interface Props {}
 
 const TryIt = () => {
   return (
-    <div>
+    <div className="tryItPage">
       <NavBar backgroundTransparent={false} />
+      <div>
+        <p className="tryIt">lets try errr out</p>
+      </div>
     </div>
   );
 };

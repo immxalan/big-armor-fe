@@ -499,32 +499,32 @@ body {
     margin: 0;
   }
 
-  .summaryBox1{
+  .summaryBox1 {
     width: 100%;
     flex-flow: column wrap;
     padding: 0;
   }
-  .summOne{
+  .summOne {
     width: 80%;
     font-size: 20px;
     margin: 30px auto;
     padding: 0;
   }
-  .productImage1{
+  .productImage1 {
     padding: 0;
     width: 300px;
     margin: auto auto;
   }
-  .summaryBox2{
+  .summaryBox2 {
     flex-flow: column-reverse wrap;
   }
-  .summTwo{
+  .summTwo {
     width: 80%;
     font-size: 20px;
     padding: 0;
     margin: 0 auto;
   }
-  .productImage2{
+  .productImage2 {
     width: 300px;
   }
 }
@@ -542,6 +542,14 @@ body {
     width: 350px !important;
     height: 30vh !important;
   }
+}
+
+//Try it page
+.tryIt {
+  margin-top: 30%;
+}
+.tryItPage {
+  width: 100%;
 }
 //API Docs page
 .navbarCoverWhiteSpace {
@@ -662,7 +670,7 @@ body {
   }
 }
 //About page
-.aboutPage{
+.aboutPage {
   margin-bottom: 100px;
 }
 .header {
