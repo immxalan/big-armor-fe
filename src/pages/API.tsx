@@ -1,8 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 
 function API() {
   const [whichSelect, setWhichSelect] = useState("Introduction");
+
+  const tabHighlightSmallScreen = () => {
+    window.pageYOffset <= 105 ? setWhichSelect("Introduction") : console.log();
+    289 > window.pageYOffset && window.pageYOffset > 105
+      ? setWhichSelect("preprocessing")
+      : console.log();
+      627 > window.pageYOffset && window.pageYOffset > 288
+      ? setWhichSelect("requests")
+      : console.log();
+      787 > window.pageYOffset && window.pageYOffset > 626
+      ? setWhichSelect("model")
+      : console.log();
+    window.pageYOffset >= 788 ? setWhichSelect("deploy") : console.log();
+  };
+  const tabHighlightLargeScreen = () => {
+    window.pageYOffset <= 118 ? setWhichSelect("Introduction") : console.log();
+    320 > window.pageYOffset && window.pageYOffset > 118
+      ? setWhichSelect("preprocessing")
+      : console.log();
+      639 > window.pageYOffset && window.pageYOffset > 319
+      ? setWhichSelect("requests")
+      : console.log();
+      817 > window.pageYOffset && window.pageYOffset > 638
+      ? setWhichSelect("model")
+      : console.log();
+    window.pageYOffset >= 817 ? setWhichSelect("deploy") : console.log();
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.innerHeight < 860 ? tabHighlightSmallScreen() : console.log();
+      window.innerHeight >= 860 ? tabHighlightLargeScreen() : console.log();
+      
+      console.log(window.pageYOffset);
+    });
+  });
   return (
     <div>
       <NavBar backgroundTransparent={false} />
@@ -10,7 +45,7 @@ function API() {
       <div className="docsContainer">
         <div className="docsNav">
           <a
-            onClick={() => setWhichSelect("Introduction")}
+            // onClick={() => setWhichSelect("Introduction")}
             href="#intro"
             className={
               whichSelect === "Introduction" ? "selectedDoc" : "notSelectedDoc"
@@ -19,7 +54,7 @@ function API() {
             Introduction
           </a>
           <a
-            onClick={() => setWhichSelect("preprocessing")}
+            // onClick={() => setWhichSelect("preprocessing")}
             href="#preprocessing"
             className={
               whichSelect === "preprocessing" ? "selectedDoc" : "notSelectedDoc"
@@ -28,7 +63,7 @@ function API() {
             Preprocessing
           </a>
           <a
-            onClick={() => setWhichSelect("requests")}
+            // onClick={() => setWhichSelect("requests")}
             href="#requests"
             className={
               whichSelect === "requests" ? "selectedDoc" : "notSelectedDoc"
@@ -37,7 +72,7 @@ function API() {
             Making Requests
           </a>
           <a
-            onClick={() => setWhichSelect("model")}
+            // onClick={() => setWhichSelect("model")}
             href="#model"
             className={
               whichSelect === "model" ? "selectedDoc" : "notSelectedDoc"
@@ -46,7 +81,7 @@ function API() {
             Model
           </a>
           <a
-            onClick={() => setWhichSelect("deploy")}
+            // onClick={() => setWhichSelect("deploy")}
             href="#deploy"
             className={
               whichSelect === "deploy" ? "selectedDoc" : "notSelectedDoc"

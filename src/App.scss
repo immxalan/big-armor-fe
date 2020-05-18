@@ -617,6 +617,7 @@ body {
   #deploy {
     padding-top: 80px;
     margin-top: -80px;
+    margin-bottom: 500px;
   }
   h1 {
     color: #2a2f45;
@@ -674,7 +675,7 @@ body {
   margin-bottom: 100px;
 }
 .header {
-  padding-top: 12%;
+  padding-top: 15%;
   @include fade;
 }
 .teamFlexContainer {
