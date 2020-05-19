@@ -1,43 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 import NavBar from "../components/NavBar";
 
-function API() {
-  const [whichSelect, setWhichSelect] = useState("Introduction");
+export default class API extends Component{
+  state = {
+    whichSelect: 'Introduction',
+  }
+  isBottom(element: any) {
+    return element.getBoundingClientRect().bottom <= window.innerHeight;
+  }
+  
+  componentDidMount() {
+    document.addEventListener('scroll', this.trackScrolling);
+  }
+  
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.trackScrolling);
+  }
+  
 
-  const tabHighlightSmallScreen = () => {
-    window.pageYOffset <= 105 ? setWhichSelect("Introduction") : console.log();
-    289 > window.pageYOffset && window.pageYOffset > 105
-      ? setWhichSelect("preprocessing")
-      : console.log();
-      627 > window.pageYOffset && window.pageYOffset > 288
-      ? setWhichSelect("requests")
-      : console.log();
-      787 > window.pageYOffset && window.pageYOffset > 626
-      ? setWhichSelect("model")
-      : console.log();
-    window.pageYOffset >= 788 ? setWhichSelect("deploy") : console.log();
+  trackScrolling = () => {
+    const introElement = document.getElementById('intro');
+    const preprocessingElement = document.getElementById('preprocessing');
+    const requestElement = document.getElementById('requests');
+    const modelElement = document.getElementById('model');
+    const deployElement = document.getElementById('deploy');
+    if (this.isBottom(introElement)) {
+      this.setState({ whichSelect: 'Introduction'});
+    }
+    if (this.isBottom(preprocessingElement)) {
+      this.setState({ whichSelect: 'preprocessing'});
+    }
+    if (this.isBottom(requestElement)) {
+      this.setState({ whichSelect: 'requests'});
+    }
+    if (this.isBottom(modelElement)) {
+      this.setState({ whichSelect: 'model'});
+    }
+    if (this.isBottom(deployElement)) {
+      this.setState({ whichSelect: 'deploy'});
+    }
   };
-  const tabHighlightLargeScreen = () => {
-    window.pageYOffset <= 118 ? setWhichSelect("Introduction") : console.log();
-    320 > window.pageYOffset && window.pageYOffset > 118
-      ? setWhichSelect("preprocessing")
-      : console.log();
-      639 > window.pageYOffset && window.pageYOffset > 319
-      ? setWhichSelect("requests")
-      : console.log();
-      817 > window.pageYOffset && window.pageYOffset > 638
-      ? setWhichSelect("model")
-      : console.log();
-    window.pageYOffset >= 817 ? setWhichSelect("deploy") : console.log();
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      window.innerHeight < 860 ? tabHighlightSmallScreen() : console.log();
-      window.innerHeight >= 860 ? tabHighlightLargeScreen() : console.log();
-      
-      console.log(window.pageYOffset);
-    });
-  });
+  render(){
+    const { whichSelect } = this.state;
   return (
     <div>
       <NavBar backgroundTransparent={false} />
@@ -158,6 +162,7 @@ function API() {
             <h2>Making Requests</h2>
             <p>Example Request Body:</p>
             <p>"text": "I am an example string"</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni aut molestias autem eius fugit expedita, rerum illum in fuga, distinctio nihil odio. Fugiat ipsa ex, magnam eveniet maiores totam ut.</p>
           </div>
           <div className="docSection" id="model">
             <h2>Model</h2>
@@ -218,5 +223,4 @@ function API() {
     </div>
   );
 }
-
-export default API;
+}
