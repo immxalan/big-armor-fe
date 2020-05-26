@@ -554,6 +554,46 @@ body {
 .tryItPage {
   width: 100%;
 }
+.inputGraphLegendFlexContainer{
+  width: 50%;
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.classificationSection{
+  margin: 0 auto;
+  margin-bottom: 200px;
+}
+
+.classificationFlexContainer{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  .classificationTitleContainer{
+    width: 40%;
+    .classificationTitle{
+      font-size: 60px;
+    }
+  }
+  .classificationTextContainer{
+    padding-top: 30px;
+    width: 40%;
+  }
+}
+.classificationText {
+  opacity: 0;
+  transform: translateY(15vh);
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 1.0s ease-out;
+  will-change: opacity, visibility;
+}
+.classificationText.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
 //API Docs page
 .navbarCoverWhiteSpace {
   height: 160px;

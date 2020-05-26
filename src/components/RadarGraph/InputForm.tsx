@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-
+import './RadarGraph.scss';
 const InputForm = (props: any) => {
   const [currentInput, setCurrentInput] = useState("");
 
@@ -18,16 +18,20 @@ const InputForm = (props: any) => {
 
   return (
     <form className="formSubmit" onSubmit={handleSubmit}>
+      <div         className='inputField'>
       <TextField
         fullWidth
         id="standard-basic"
-        label="Name"
+        label="Text goes here"
         value={currentInput}
         onChange={handleChange}
       />
-      <Button variant="contained" color="primary" type="submit">
+      </div>
+      <div className='submitButton'>
+      <Button variant="contained" color="secondary" type="submit">
         Submit
       </Button>
+      </div>
     </form>
   );
 };

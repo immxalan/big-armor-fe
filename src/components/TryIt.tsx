@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import Graph from "./RadarGraph/Graph";
 import InputForm from "./RadarGraph/InputForm";
 import Legend from "./RadarGraph/Legend";
@@ -12,8 +12,7 @@ import {
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 
-function RadarGraph() {
-  // const [input, setInput] = useState("");
+ // const [input, setInput] = useState("");
 
   //creates the full dataset with three sets initialised
   let dataRadar: {
@@ -47,19 +46,19 @@ function RadarGraph() {
 
   // Mock GET request to /users when param `searchText` is 'John'
   // arguments for reply are (status, data, headers)
-  mock.onPost("/users").reply((req) => {
-    let reqData = JSON.parse(req.data);
-    let res = {
-      ...reqData.params.mockResponse,
-      text: reqData.params.text,
-    };
-    return [
-      200,
-      {
-        res,
-      },
-    ];
-  });
+  // mock.onPost("/users").reply((req) => {
+  //   let reqData = JSON.parse(req.data);
+  //   let res = {
+  //     ...reqData.params.mockResponse,
+  //     text: reqData.params.text,
+  //   };
+  //   return [
+  //     200,
+  //     {
+  //       res,
+  //     },
+  //   ];
+  // });
 
   // useEffect(() => {
   //   axios
@@ -70,14 +69,112 @@ function RadarGraph() {
   //       console.log(response);
   //     });
   // }, [input]);
+export default class RadarGraph extends Component{
+ state = {
+   whichVisible: 'toxic'
+ }
+ isBottom(element: any) {
+  return element.getBoundingClientRect().bottom <= window.innerHeight;
+}
 
+componentDidMount() {
+  document.addEventListener('scroll', this.trackScrolling);
+}
+
+componentWillUnmount() {
+  document.removeEventListener('scroll', this.trackScrolling);
+}
+trackScrolling = () => {
+  const toxicElement = document.getElementById('toxic');
+  const severeToxicElement = document.getElementById('severeToxic');
+  const obsceneElement = document.getElementById('obscene');
+  const threatElement = document.getElementById('threat');
+  const insultElement = document.getElementById('insult');
+  const identityElement = document.getElementById('identityHate');
+  if (this.isBottom(toxicElement)) {
+    this.setState({ whichVisible: 'toxic'});
+  }
+  if (this.isBottom(severeToxicElement)) {
+    this.setState({ whichVisible: 'severeToxic'});
+  }
+  if (this.isBottom(obsceneElement)) {
+    this.setState({ whichVisible: 'obscene'});
+  }
+  if (this.isBottom(threatElement)) {
+    this.setState({ whichVisible: 'threat'});
+  }
+  if (this.isBottom(insultElement)) {
+    this.setState({ whichVisible: 'insult'});
+  }
+  if (this.isBottom(identityElement)) {
+    this.setState({ whichVisible: 'identityHate'});
+  }
+};
+render(){
+  const {whichVisible} = this.state;
   return (
-    <div>
-      <Graph dataRadar={dataRadar}/>
-      <InputForm/>
-      <Legend legend={dataRadar}/>
+    <div className='tryItPage'>
+      <div className='inputGraphLegendFlexContainer'>
+        <InputForm/>
+        <div className='graphLegendContainer'>
+          <Graph dataRadar={dataRadar}/>
+          <Legend legend={dataRadar}/>
+        </div>
+      </div>
+      <div className='classificationSection'>
+        <div className='classificationFlexContainer' id='toxic'>
+          <div className='classificationTitleContainer'>
+            <h1 className='classificationTitle'>Toxic</h1>
+          </div>
+          <div className='classificationTextContainer'>
+            <p className={whichVisible==='toxic' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
+          </div>
+        </div>
+        <div className='classificationFlexContainer' id='severeToxic'>
+          <div className='classificationTextContainer'>
+            <p className={whichVisible==='severeToxic' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
+          </div>
+          <div className='classificationTitleContainer'>
+            <h1 className='classificationTitle'>Severe Toxic</h1>
+          </div>
+        </div>
+        <div className='classificationFlexContainer' id='obscene'>
+          <div className='classificationTitleContainer'>
+            <h1 className='classificationTitle'>Obscene</h1>
+          </div>
+          <div className='classificationTextContainer'>
+            <p className={whichVisible==='obscene' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
+          </div>
+        </div>
+        <div className='classificationFlexContainer' id='threat'>
+          <div className='classificationTextContainer'>
+            <p className={whichVisible==='threat' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
+          </div>
+          <div className='classificationTitleContainer'>
+            <h1 className='classificationTitle'>Threat</h1>
+          </div>
+        </div>
+        <div className='classificationFlexContainer' id='insult'>
+          <div className='classificationTitleContainer'>
+            <h1 className='classificationTitle'>Insult</h1>
+          </div>
+          <div className='classificationTextContainer'>
+            <p className={whichVisible==='insult' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
+          </div>
+        </div>
+        <div className='classificationFlexContainer' id='identityHate'>
+          <div className='classificationTextContainer'>
+            <p className={whichVisible==='identityHate' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
+          </div>
+          <div className='classificationTitleContainer'>
+            <h1 className='classificationTitle'>Identity Hate</h1>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
+}
 }
 
 // three columns:
@@ -94,4 +191,3 @@ function RadarGraph() {
 //   eacht text contains a delete option
 //   a clear button at the bottom
 
-export default RadarGraph;
