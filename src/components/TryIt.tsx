@@ -130,7 +130,15 @@ export default class RadarGraph extends Component {
         <div className="classificationSection">
           <div className="classificationFlexContainer" id="toxic">
             <div className="classificationTitleContainer">
-              <h1 className="classificationTitle">Toxic</h1>
+              <h1
+                className={
+                  whichVisible === "toxic"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Toxic
+              </h1>
             </div>
             <div className="classificationTextContainer">
               <p
@@ -140,13 +148,8 @@ export default class RadarGraph extends Component {
                     : "classificationText"
                 }
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Toxic is a measure of text being emotionally abusive and
+                psychologically harmful towards others.
               </p>
             </div>
           </div>
@@ -159,22 +162,33 @@ export default class RadarGraph extends Component {
                     : "classificationText"
                 }
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Severe Toxic rates text for the same metrics as Toxic, but on an
+                extreme scale.
               </p>
             </div>
             <div className="classificationTitleContainer">
-              <h1 className="classificationTitle">Severe Toxic</h1>
+              <h1
+                className={
+                  whichVisible === "severeToxic"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Severe Toxic
+              </h1>
             </div>
           </div>
           <div className="classificationFlexContainer" id="obscene">
             <div className="classificationTitleContainer">
-              <h1 className="classificationTitle">Obscene</h1>
+              <h1
+                className={
+                  whichVisible === "obscene"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Obscene
+              </h1>
             </div>
             <div className="classificationTextContainer">
               <p
@@ -184,8 +198,8 @@ export default class RadarGraph extends Component {
                     : "classificationText"
                 }
               >
-                Measures the offensive nature of text, with weight towards
-                cursing and foul language.
+                Obscenity measures the offensive nature of text, with weight
+                towards cursing and foul language.
               </p>
             </div>
           </div>
@@ -198,17 +212,33 @@ export default class RadarGraph extends Component {
                     : "classificationText"
                 }
               >
-                Measures the hostility of text and intent to inflict damage on
-                others.
+                Threat is a measure of the hostility of text and intent to
+                inflict physical harm on others.
               </p>
             </div>
             <div className="classificationTitleContainer">
-              <h1 className="classificationTitle">Threat</h1>
+              <h1
+                className={
+                  whichVisible === "threat"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Threat
+              </h1>
             </div>
           </div>
           <div className="classificationFlexContainer" id="insult">
             <div className="classificationTitleContainer">
-              <h1 className="classificationTitle">Insult</h1>
+              <h1
+                className={
+                  whichVisible === "insult"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Insult
+              </h1>
             </div>
             <div className="classificationTextContainer">
               <p
@@ -218,7 +248,8 @@ export default class RadarGraph extends Component {
                     : "classificationText"
                 }
               >
-                Measures abusive language targeted at someone or something.
+                Insult measures abusive language targeted at someone or
+                something.
               </p>
             </div>
           </div>
@@ -231,12 +262,20 @@ export default class RadarGraph extends Component {
                     : "classificationText"
                 }
               >
-                Measures the bias of text through prejudice on the basis of
-                race, religion, sexual orientation, or other grounds.
+                Identity Hate measures the bias of text through prejudice on the
+                basis of race, religion, sexual orientation, or other grounds.
               </p>
             </div>
             <div className="classificationTitleContainer">
-              <h1 className="classificationTitle">Identity Hate</h1>
+              <h1
+                className={
+                  whichVisible === "identityHate"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Identity Hate
+              </h1>
             </div>
           </div>
         </div>
