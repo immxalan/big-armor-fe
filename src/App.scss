@@ -409,18 +409,22 @@ body {
   height: 20vh;
   display: flex;
   overflow: hidden;
+  background: #4286f4;
   div {
     position: relative;
     width: 100%;
-    background: #4286f4;
     overflow: hidden;
+    animation: animate 40s linear infinite;
     .bannerText {
       color: white;
       position: absolute;
       white-space: nowrap;
+      opacity: 0.2;
       font-size: 4em;
       line-height: 10vh;
-      animation: animate 120s linear infinite;
+    }
+    .bannerImage {
+      opacity: .2;
     }
     //Keyframes for scrolling banner
     @keyframes animate {
@@ -428,7 +432,7 @@ body {
         transform: translateX(0);
       }
       100% {
-        transform: translateX(-100%);
+        transform: translateX(100%);
       }
     }
   }
