@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -86,6 +87,8 @@ function Home() {
                 className="topButton"
                 variant="contained"
                 color="secondary"
+                component={Link}
+                to="/try-it"
               >
                 Try it out
               </Button>
@@ -165,15 +168,17 @@ function Home() {
           </Paper>
         </Grid>
       </Grid>
-      <div className='bottomHomePage'>
-              <Button
-                className="bottomButton"
-                variant="contained"
-                color="secondary"
-              >
-                Try it out
-              </Button>
-            </div>
+      <div className="bottomHomePage">
+        <Button
+          className="bottomButton"
+          variant="contained"
+          color="secondary"
+          component={Link}
+          to="/try-it"
+        >
+          Try it out
+        </Button>
+      </div>
       <NavBar backgroundTransparent={true} />
     </div>
   );

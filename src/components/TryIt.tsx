@@ -13,7 +13,7 @@ import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 
 function RadarGraph() {
-  const [input, setInput] = useState("");
+  // const [input, setInput] = useState("");
 
   //creates the full dataset with three sets initialised
   let dataRadar: {
@@ -61,19 +61,21 @@ function RadarGraph() {
     ];
   });
 
-  useEffect(() => {
-    axios
-      .post("/users", {
-        params: { mockResponse: MockResponseOne, text: input },
-      })
-      .then((response) => {
-        console.log(response);
-      });
-  }, [input]);
+  // useEffect(() => {
+  //   axios
+  //     .post("/users", {
+  //       params: { mockResponse: MockResponseOne, text: input },
+  //     })
+  //     .then((response) => {
+  //       console.log(response);
+  //     });
+  // }, [input]);
 
   return (
     <div>
-      <p>This section will contain the text area, the graph, and the legend of strings</p>
+      <Graph dataRadar={dataRadar}/>
+      <InputForm/>
+      <Legend legend={dataRadar}/>
     </div>
   );
 }

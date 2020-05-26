@@ -11,7 +11,7 @@ const InputForm = (props: any) => {
   }
 
   function handleSubmit(event: any) {
-    alert("A name was submitted: " + currentInput);
+    alert("Text input being analyzed: " + currentInput);
     props.setInput(currentInput);
     event.preventDefault();
   }
