@@ -1,44 +1,68 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles({
-  logo: {
-    display: "flex",
-    justifyContent: "left",
-    paddingTop: 50,
-    paddingLeft: 40,
-  },
-  navBar: {
-    display: "flex",
-    justifyContent: "space-evenly",
-    textDecoration: "none",
-  },
-  // headerDisplay: {
-  //   display: "flex",
-  //   justifyContent: "space-around",
-  // },
-});
-
-function NavBar() {
-  const classes = useStyles();
-
-  return (
-    <div>
-      <img
-        src="https://www.bigarmor.com/wp-content/uploads/Big-Armor-Logo.png"
-        alt="Big Armor logo"
-        className={classes.logo}
-      />
-      <nav className={classes.navBar}>
-        <Link to="/">Home</Link>
-        <Link to="/try-it">Try It</Link>
-        <Link to="/api-docs">API Documentation</Link>
-        <Link to="/model-docs">Model Documentation</Link>
-        <Link to="/about">About</Link>
-      </nav>
-    </div>
-  );
+interface props {
+  backgroundTransparent: boolean;
 }
+export default class NavBar extends Component<props> {
+  state = {
+    scrolled: false,
+  };
 
-export default NavBar;
+  componentDidMount() {
+    window.addEventListener("scroll", this.navOnScroll);
+    window.scrollTo(0, 0);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.navOnScroll);
+  }
+
+  navOnScroll = () => {
+    if (window.scrollY > 20) {
+      this.setState({ scrolled: true });
+    } else {
+      this.setState({ scrolled: false });
+    }
+  };
+
+  render() {
+    const { scrolled } = this.state;
+    return (
+      <nav
+        className={
+          scrolled
+            ? "nav scroll"
+            : !scrolled && !this.props.backgroundTransparent
+            ? "nav navNotInvis"
+            : "nav"
+        }
+      >
+        <div className="headerFlexContainer">
+          <div className="logo">
+            <img
+              src="https://www.bigarmor.com/wp-content/uploads/Big-Armor-Logo.png"
+              alt="Big Armor logo"
+            />
+          </div>
+          <div className="allLinkContainer">
+            <Link className="smallWidth" to="/">
+              <span>Home</span>
+            </Link>
+
+            <Link className="mediumWidth" to="/try-it">
+              <span>Try It</span>
+            </Link>
+
+            <Link className="largeWidth" to="/api-docs">
+              <span>API Documentation</span>
+            </Link>
+
+            <Link className="mediumWidth" to="/about">
+              <span>About</span>
+            </Link>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+}

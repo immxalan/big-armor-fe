@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar";
 const Model = () => {
   return (
     <div>
-      <NavBar />
+      <NavBar backgroundTransparent={false} />
       <p>Model Page</p>
     </div>
   );

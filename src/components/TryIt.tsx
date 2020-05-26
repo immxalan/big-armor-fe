@@ -72,14 +72,8 @@ function RadarGraph() {
   }, [input]);
 
   return (
-    <div className="tryItSection">
-      <p>
-        This secion will contain the text area, the graph, and the legend of
-        strings
-      </p>
-      <Graph dataRadar={dataRadar} />
-      <InputForm setInput={setInput} />
-      <Legend legend={dataRadar} />
+    <div>
+      <p>This section will contain the text area, the graph, and the legend of strings</p>
     </div>
   );
 }
