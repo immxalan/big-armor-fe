@@ -11,25 +11,24 @@ const InputForm = (props: any) => {
   }
 
   function handleSubmit(event: any) {
-    alert("Text input being analyzed: " + currentInput);
-    props.setInput(currentInput);
+    props.input = currentInput
     event.preventDefault();
   }
 
   return (
     <form className="formSubmit" onSubmit={handleSubmit}>
-      <div         className='inputField'>
-      <TextField
-        fullWidth
-        id="standard-basic"
-        label="Text goes here"
-        value={currentInput}
-        onChange={handleChange}
-      />
+      <div className='inputField'>
+        <TextField
+          fullWidth
+          id="standard-basic"
+          label="Text goes here"
+          value={currentInput}
+          onChange={handleChange}
+        />
       </div>
       <div className='submitButton'>
-      <Button variant="contained" color="secondary" type="submit">
-        Submit
+        <Button variant="contained" color="secondary" type="submit">
+          Submit
       </Button>
       </div>
     </form>

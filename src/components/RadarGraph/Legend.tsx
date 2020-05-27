@@ -13,8 +13,9 @@ function Legend(props: {
               <div
                 style={{ backgroundColor: `${dataset.backgroundColor}` }}
                 className="smallBox"
-              ></div>
-              <p className="paragraphSpacing">{dataset.label}</p>
+              >
+                <p className="paragraphSpacing">{dataset.label}</p>
+              </div>
             </div>
           );
         }
