@@ -166,57 +166,158 @@ export default class RadarGraph extends Component {
             <Legend legend={dataRadar} />
           </div>
         </div>
-        <div className='classificationSection'>
-          <div className='classificationFlexContainer' id='toxic'>
-            <div className='classificationTitleContainer'>
-              <h1 className='classificationTitle'>Toxic</h1>
+        <div className="classificationSection">
+          <div className="classificationFlexContainer" id="toxic">
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "toxic"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Toxic
+              </h1>
             </div>
-            <div className='classificationTextContainer'>
-              <p className={whichVisible === 'toxic' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
-            </div>
-          </div>
-          <div className='classificationFlexContainer' id='severeToxic'>
-            <div className='classificationTextContainer'>
-              <p className={whichVisible === 'severeToxic' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
-            </div>
-            <div className='classificationTitleContainer'>
-              <h1 className='classificationTitle'>Severe Toxic</h1>
-            </div>
-          </div>
-          <div className='classificationFlexContainer' id='obscene'>
-            <div className='classificationTitleContainer'>
-              <h1 className='classificationTitle'>Obscene</h1>
-            </div>
-            <div className='classificationTextContainer'>
-              <p className={whichVisible === 'obscene' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
-            </div>
-          </div>
-          <div className='classificationFlexContainer' id='threat'>
-            <div className='classificationTextContainer'>
-              <p className={whichVisible === 'threat' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
-            </div>
-            <div className='classificationTitleContainer'>
-              <h1 className='classificationTitle'>Threat</h1>
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "toxic"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Toxic is a measure of text being emotionally abusive and
+                psychologically harmful towards others.
+              </p>
             </div>
           </div>
-          <div className='classificationFlexContainer' id='insult'>
-            <div className='classificationTitleContainer'>
-              <h1 className='classificationTitle'>Insult</h1>
+          <div className="classificationFlexContainer" id="severeToxic">
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "severeToxic"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Severe Toxic rates text for the same metrics as Toxic, but on an
+                extreme scale.
+              </p>
             </div>
-            <div className='classificationTextContainer'>
-              <p className={whichVisible === 'insult' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "severeToxic"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Severe Toxic
+              </h1>
             </div>
           </div>
-          <div className='classificationFlexContainer' id='identityHate'>
-            <div className='classificationTextContainer'>
-              <p className={whichVisible === 'identityHate' ? 'classificationText is-visible' : 'classificationText'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quia temporibus enim tempore voluptas nulla natus distinctio, iusto modi id fuga rerum soluta dignissimos libero culpa optio autem nesciunt unde?</p>
+          <div className="classificationFlexContainer" id="obscene">
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "obscene"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Obscene
+              </h1>
             </div>
-            <div className='classificationTitleContainer'>
-              <h1 className='classificationTitle'>Identity Hate</h1>
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "obscene"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Obscenity measures the offensive nature of text, with weight
+                towards cursing and foul language.
+              </p>
+            </div>
+          </div>
+          <div className="classificationFlexContainer" id="threat">
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "threat"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Threat is a measure of the hostility of text and intent to
+                inflict physical harm on others.
+              </p>
+            </div>
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "threat"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Threat
+              </h1>
+            </div>
+          </div>
+          <div className="classificationFlexContainer" id="insult">
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "insult"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Insult
+              </h1>
+            </div>
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "insult"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Insult measures abusive language targeted at someone or
+                something.
+              </p>
+            </div>
+          </div>
+          <div className="classificationFlexContainer" id="identityHate">
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "identityHate"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Identity Hate measures the bias of text through prejudice on the
+                basis of race, religion, sexual orientation, or other grounds.
+              </p>
+            </div>
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "identityHate"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Identity Hate
+              </h1>
             </div>
           </div>
         </div>
-
       </div>
     );
   }
@@ -235,4 +336,3 @@ export default class RadarGraph extends Component {
 //   legend that displays the different texts that have been entered
 //   eacht text contains a delete option
 //   a clear button at the bottom
-

@@ -99,49 +99,25 @@ function Home() {
         <section id="movingBanner">
           <div>
             <h2 className="bannerText">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              doloremque veniam modi, unde sunt deleniti tenetur voluptate nisi
-              autem distinctio neque quae aperiam rerum reprehenderit hic!
-              Mollitia sit voluptas quod.
+              This API is hosted on:
             </h2>
+            <img className='bannerText' height='150px' width='175px' src='https://www.thesoftwarereport.com/wp-content/uploads/2019/02/google-cloud.jpg' alt='google' />
           </div>
-          {/* <div>
-          <h2 className='bannerText'>
-            
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            doloremque veniam modi, unde sunt deleniti tenetur voluptate nisi
-            autem distinctio neque quae aperiam rerum reprehenderit hic!
-            Mollitia sit voluptas quod.
-          </h2>
-        </div> */}
         </section>
       </div>
       <div className="example">
         <div className="summaryBox1">
           <p className="summOne">
-            Get a general understanding of the culture in your company with text
-            toxicity analysis from Big Armor.
+            In many environments encountered by professionals such as social workers or doctors, it's hard to immediately identify and address concerning behavior in their charges or colleagues, such as:
+            <ul>
+              <li>Bullying behavior</li>
+              <li>Other kinds of toxic behavior</li>
+            </ul>
+            To accomplish this our model will have a text embedder to convert the input text into a usable vector; most likely some neural network embedder. At that point, it will be fit into a classifier, most likely one specialized for imbalanced data, such as balanced binning.
           </p>
           <div className="productImageContainer">
             <img
               className="productImage1"
-              src="https://i.imgur.com/A3P7VaY.jpg"
-              alt="written computer code diplayed on monitor"
-            />
-          </div>
-        </div>
-        <div className="summaryBox2">
-          <div className="summTwo">
-            <div>
-              <p>
-                Useful infomation that helps shape the current and future
-                culture of your company.
-              </p>
-            </div>
-          </div>
-          <div>
-            <img
-              className="productImage2"
               src="https://i.imgur.com/A3P7VaY.jpg"
               alt="written computer code diplayed on monitor"
             />
