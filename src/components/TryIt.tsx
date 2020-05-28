@@ -36,6 +36,8 @@ export default class RadarGraph extends Component {
     whichVisible: 'toxic',
     input: "",
     currentInput: "",
+    latestInput: "",
+    dataRadar: {}
   }
   isBottom(element: any) {
     return element.getBoundingClientRect().bottom <= window.innerHeight;
@@ -75,22 +77,23 @@ export default class RadarGraph extends Component {
     }
   }
 
-  handleChange(event: any) {
-    this.setState({ currentInput: event.target.value })
-    console.log(event.target.value);
+  handleChange = (event: any) => {
+    this.setState({ [event.target.name]: event.target.value })
   }
 
-  handleSubmit(event: any) {
-    this.setState({ input: event.target.value })
+  handleSubmit = (event: any) => {
+    this.setState({ [event.target.name]: event.target.value })
+    console.log("the string send to backend", this.state.input)
     event.preventDefault();
-  }
 
-  componentDidUpdate(input: any) {
+    // if (this.state.input !== this.state.latestInput) {
+
+    // this.setState({ latestInput: this.state.input })
+
     axios
-      .post("http://34.72.156.222:8000/predict", { text: `${input}` })
+      .post("http://34.71.91.189:8000/predict", { text: `${this.state.input}` })
       .then(res => {
-        alert("Axios is running");
-        console.log(res);
+        console.log("this is the response", res);
         dataRadar.datasets.push(
           DataSetCreater(
             res.data,
@@ -98,27 +101,57 @@ export default class RadarGraph extends Component {
             Colors[dataRadar.datasets.length]
           )
         )
+        this.setState({ dataRadar: dataRadar })
+        console.log(dataRadar.datasets)
       })
       .catch(err => {
-        console.log(err)
+        console.log("this is the error", err)
       })
+
+
   }
 
+  // componentDidUpdate(input: string, latestInput: string) {
+  //   if (input !== latestInput) {
+
+  //     this.setState({ latestInput: input })
+
+  //     axios
+  //       .post("http://34.71.91.189:8000/predict", { text: `${input}` })
+  //       .then(res => {
+  //         console.log("this is the response", res);
+  //         dataRadar.datasets.push(
+  //           DataSetCreater(
+  //             res.data,
+  //             dataRadar.labels,
+  //             Colors[dataRadar.datasets.length]
+  //           )
+  //         )
+  //       })
+  //       .catch(err => {
+  //         console.log("this is the error", err)
+  //       })
+
+
+  //   }
+  // }
+
   render() {
-    const { whichVisible, currentInput } = this.state;
-    const handleSubmit = this.handleSubmit
-    const handleChange = this.handleChange
+    const { whichVisible } = this.state;
+    // const handleSubmit = this.handleSubmit
+    // const handleChange = this.handleChange
     return (
       <div className='tryItPage'>
         <div className='inputGraphLegendFlexContainer'>
-          <form className="formSubmit" onSubmit={handleSubmit}>
+          <form className="formSubmit" onSubmit={this.handleSubmit}>
             <div className='inputField'>
               <TextField
                 fullWidth
                 id="standard-basic"
                 label="Text goes here"
-                value={currentInput}
-                onChange={handleChange}
+                name="input"
+                value={this.state.input}
+                onChange={this.handleChange}
               />
             </div>
             <div className='submitButton'>

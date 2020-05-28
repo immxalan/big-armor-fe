@@ -7,9 +7,9 @@ function Legend(props: {
   return (
     <div className="legendAllDataSets">
       {props.legend.datasets.map(
-        (dataset: { backgroundColor: string; label: string }) => {
+        (dataset: { backgroundColor: string; label: string }, i: number) => {
           return (
-            <div key={dataset.label} className="legendOneDataSet">
+            <div key={i} className="legendOneDataSet">
               <div
                 style={{ backgroundColor: `${dataset.backgroundColor}` }}
                 className="smallBox"
