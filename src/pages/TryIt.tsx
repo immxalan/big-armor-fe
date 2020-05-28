@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import TryItGraph from "../components/TryIt";
 import NavBar from "../components/NavBar";
 
 interface Props {}
@@ -8,7 +9,9 @@ const TryIt = () => {
     <div className="tryItPage">
       <NavBar backgroundTransparent={false} />
       <div>
-        <p className="tryIt">lets try errr out</p>
+      <div className="tryIt">
+        <TryItGraph />
+      </div>
       </div>
     </div>
   );

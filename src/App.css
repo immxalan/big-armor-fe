@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+.smallBox {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.legendOneDataSet {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid white;
+}
+.legendOneDataSet:hover {
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.legendAllDataSets {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 2% 0;
+}
+.formSubmit {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 600px;
+}
+.tryItSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+.graphComponent {
+  width: 600px;
+}

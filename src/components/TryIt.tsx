@@ -1,25 +1,299 @@
-import React from "react"
+import React, { useState, useEffect, Component } from "react";
+import Graph from "./RadarGraph/Graph";
+import InputForm from "./RadarGraph/InputForm";
+import Legend from "./RadarGraph/Legend";
+import { DataRadarCreater, DataSetCreater } from "../helpers/CreateRadarData";
+import Colors from "../helpers/Colors";
+import {
+  MockResponseOne,
+  MockResponseTwo,
+  MockResponseThree,
+} from "../helpers/MockApiResponses";
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
 
-function TryIt() {
-  return (
-    <div>
-      <p>This section will contain the text area, the graph, and the legend of strings</p>
-    </div>
+// const [input, setInput] = useState("");
+
+//creates the full dataset with three sets initialised
+let dataRadar: {
+  datasets: { backgroundColor: string; label: string }[];
+  labels: string[];
+} = DataRadarCreater(MockResponseOne);
+dataRadar.datasets.push(
+  DataSetCreater(
+    MockResponseOne,
+    dataRadar.labels,
+    Colors[dataRadar.datasets.length]
   )
+);
+dataRadar.datasets.push(
+  DataSetCreater(
+    MockResponseTwo,
+    dataRadar.labels,
+    Colors[dataRadar.datasets.length]
+  )
+);
+dataRadar.datasets.push(
+  DataSetCreater(
+    MockResponseThree,
+    dataRadar.labels,
+    Colors[dataRadar.datasets.length]
+  )
+);
+
+// This sets the mock adapter on the default instance
+var mock = new MockAdapter(axios);
+
+axios
+  .post("http://34.72.156.222:8000/predict/")
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => console.log(err));
+// Mock GET request to /users when param `searchText` is 'John'
+// arguments for reply are (status, data, headers)
+// mock.onPost("/users").reply((req) => {
+//   let reqData = JSON.parse(req.data);
+//   let res = {
+//     ...reqData.params.mockResponse,
+//     text: reqData.params.text,
+//   };
+//   return [
+//     200,
+//     {
+//       res,
+//     },
+//   ];
+// });
+
+// useEffect(() => {
+//   axios
+//     .post("/users", {
+//       params: { mockResponse: MockResponseOne, text: input },
+//     })
+//     .then((response) => {
+//       console.log(response);
+//     });
+// }, [input]);
+export default class RadarGraph extends Component {
+  state = {
+    whichVisible: "toxic",
+  };
+  isBottom(element: any) {
+    return element.getBoundingClientRect().bottom <= window.innerHeight;
+  }
+
+  componentDidMount() {
+    document.addEventListener("scroll", this.trackScrolling);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("scroll", this.trackScrolling);
+  }
+  trackScrolling = () => {
+    const toxicElement = document.getElementById("toxic");
+    const severeToxicElement = document.getElementById("severeToxic");
+    const obsceneElement = document.getElementById("obscene");
+    const threatElement = document.getElementById("threat");
+    const insultElement = document.getElementById("insult");
+    const identityElement = document.getElementById("identityHate");
+    if (this.isBottom(toxicElement)) {
+      this.setState({ whichVisible: "toxic" });
+    }
+    if (this.isBottom(severeToxicElement)) {
+      this.setState({ whichVisible: "severeToxic" });
+    }
+    if (this.isBottom(obsceneElement)) {
+      this.setState({ whichVisible: "obscene" });
+    }
+    if (this.isBottom(threatElement)) {
+      this.setState({ whichVisible: "threat" });
+    }
+    if (this.isBottom(insultElement)) {
+      this.setState({ whichVisible: "insult" });
+    }
+    if (this.isBottom(identityElement)) {
+      this.setState({ whichVisible: "identityHate" });
+    }
+  };
+  render() {
+    const { whichVisible } = this.state;
+    return (
+      <div className="tryItPage">
+        <div className="inputGraphLegendFlexContainer">
+          <InputForm />
+          <div className="graphLegendContainer">
+            <Graph dataRadar={dataRadar} />
+            <Legend legend={dataRadar} />
+          </div>
+        </div>
+        <div className="classificationSection">
+          <div className="classificationFlexContainer" id="toxic">
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "toxic"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Toxic
+              </h1>
+            </div>
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "toxic"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Toxic is a measure of text being emotionally abusive and
+                psychologically harmful towards others.
+              </p>
+            </div>
+          </div>
+          <div className="classificationFlexContainer" id="severeToxic">
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "severeToxic"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Severe Toxic rates text for the same metrics as Toxic, but on an
+                extreme scale.
+              </p>
+            </div>
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "severeToxic"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Severe Toxic
+              </h1>
+            </div>
+          </div>
+          <div className="classificationFlexContainer" id="obscene">
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "obscene"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Obscene
+              </h1>
+            </div>
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "obscene"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Obscenity measures the offensive nature of text, with weight
+                towards cursing and foul language.
+              </p>
+            </div>
+          </div>
+          <div className="classificationFlexContainer" id="threat">
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "threat"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Threat is a measure of the hostility of text and intent to
+                inflict physical harm on others.
+              </p>
+            </div>
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "threat"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Threat
+              </h1>
+            </div>
+          </div>
+          <div className="classificationFlexContainer" id="insult">
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "insult"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Insult
+              </h1>
+            </div>
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "insult"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Insult measures abusive language targeted at someone or
+                something.
+              </p>
+            </div>
+          </div>
+          <div className="classificationFlexContainer" id="identityHate">
+            <div className="classificationTextContainer">
+              <p
+                className={
+                  whichVisible === "identityHate"
+                    ? "classificationText is-visible"
+                    : "classificationText"
+                }
+              >
+                Identity Hate measures the bias of text through prejudice on the
+                basis of race, religion, sexual orientation, or other grounds.
+              </p>
+            </div>
+            <div className="classificationTitleContainer">
+              <h1
+                className={
+                  whichVisible === "identityHate"
+                    ? "classificationTitleSelected"
+                    : "classificationTitle"
+                }
+              >
+                Identity Hate
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 // three columns:
 
-// 1). 
-//   text area to input string of text to check/add 
+// 1).
+//   text area to input string of text to check/add
 //   button to add the string
 
 // 2).
 //  radar graph that displays text results layered
 
 // 3).
-//   legend that displays the different texts that have been entered 
+//   legend that displays the different texts that have been entered
 //   eacht text contains a delete option
-//   a clear button at the bottom 
-
-export default TryIt;
+//   a clear button at the bottom
