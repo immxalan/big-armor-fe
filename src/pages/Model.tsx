@@ -5,7 +5,6 @@ const Model = () => {
   return (
     <div>
       <NavBar backgroundTransparent={false} />
-      <p>Model Page</p>
     </div>
   );
 };
